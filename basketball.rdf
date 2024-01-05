@@ -7,6 +7,184 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/ModSem/Basketball"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#gioca -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#gioca">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haClassificaConference -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haClassificaConference">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haPartita -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPartita">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haStagione -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haStagione">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#partecipa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#partecipa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#suddivisoIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#suddivisoIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#suddivisoIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Classifica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ClassificaConference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Conference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Conference">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haClassificaConference"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Partita -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Squadra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Stagione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
 </rdf:RDF>
 
 
