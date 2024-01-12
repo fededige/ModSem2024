@@ -5,3 +5,4 @@ Dove è stata giocata una certa partita? (palazzetto/città)
 Quali sono i premi individuali di un certo giocatore?
 I quale squadra ha giocato un certo giocatore in un certo anno?
 Qual è la classifica generale di un certo campionato?
+Quale allenatore ha allenato la squadra dei Lakers nel 2021?
