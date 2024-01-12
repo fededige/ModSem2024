@@ -5,6 +5,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:schema="http://schema.org/">
     <owl:Ontology rdf:about="http://www.semanticweb.org/ModSem/Basketball"/>
@@ -26,7 +28,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#appartiene">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Persona"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
     </owl:ObjectProperty>
     
@@ -46,7 +48,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#compostaDa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Persona"/>
     </owl:ObjectProperty>
     
 
@@ -57,6 +59,15 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haCittà -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haCittà">
+        <rdfs:domain rdf:resource="http://schema.org/State"/>
+        <rdfs:range rdf:resource="http://schema.org/City"/>
     </owl:ObjectProperty>
     
 
@@ -81,6 +92,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haPalazzetto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPalazzetto">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoIn"/>
+        <rdfs:domain rdf:resource="http://schema.org/City"/>
+        <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#haPartita -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPartita">
@@ -95,6 +116,15 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPremio">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#haRegione -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haRegione">
+        <rdfs:domain rdf:resource="http://schema.org/Country"/>
+        <rdfs:range rdf:resource="http://schema.org/State"/>
     </owl:ObjectProperty>
     
 
@@ -117,11 +147,49 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ospitaPartita -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#ospitaPartita">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn"/>
+        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#partecipa -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#partecipa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#provieneDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#provieneDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:range rdf:resource="http://schema.org/City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#situatoIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#situatoIn">
+        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:range rdf:resource="http://schema.org/City"/>
     </owl:ObjectProperty>
     
 
@@ -144,6 +212,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#èGiocataIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra">
+        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -158,6 +244,12 @@
     <!-- http://schema.org/City -->
 
     <owl:Class rdf:about="http://schema.org/City">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haPalazzetto"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/StadiumOrArena"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
     </owl:Class>
     
@@ -166,6 +258,12 @@
     <!-- http://schema.org/Country -->
 
     <owl:Class rdf:about="http://schema.org/Country">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haRegione"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/State"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
     </owl:Class>
     
@@ -180,6 +278,26 @@
     <!-- http://schema.org/StadiumOrArena -->
 
     <owl:Class rdf:about="http://schema.org/StadiumOrArena">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ospitaPartita"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/City"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
     </owl:Class>
     
@@ -188,14 +306,14 @@
     <!-- http://schema.org/State -->
 
     <owl:Class rdf:about="http://schema.org/State">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haCittà"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/City"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ModSem/Basketball#Agente -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Agente"/>
     
 
 
@@ -234,7 +352,7 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#Arbitri -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Arbitri">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Agente"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
     </owl:Class>
     
 
@@ -347,7 +465,14 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#Giocatore -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Giocatore">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#provieneDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/City"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Persona"/>
     </owl:Class>
     
 
@@ -371,27 +496,21 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#Partecipante -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partecipante">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Agente"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Partita -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
-    
-
-
-    <!-- http://www.semanticweb.org/ModSem/Basketball#Persona -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Persona">
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/StadiumOrArena"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
     </owl:Class>
     
 
@@ -454,25 +573,16 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Squadra">
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
-                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">15</owl:maxQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/StadiumOrArena"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
@@ -489,6 +599,13 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Proprietario"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">15</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
     </owl:Class>
     
@@ -497,7 +614,7 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#Staff -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Staff">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Persona"/>
     </owl:Class>
     
 
@@ -512,6 +629,43 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Persona -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Persona">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#indTemp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#indTemp"/>
 </rdf:RDF>
 
 
