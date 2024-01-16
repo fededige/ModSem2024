@@ -161,6 +161,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#ospitaPartita -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#ospitaPartita">
@@ -180,6 +189,35 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#participatingInEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#participatingInEvent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#playerParticipating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#playerParticipating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto">
@@ -195,6 +233,16 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#provieneDa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
         <rdfs:range rdf:resource="http://schema.org/City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     </owl:ObjectProperty>
     
 
@@ -534,7 +582,7 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     </owl:Class>
     
 
@@ -602,7 +650,7 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     </owl:Class>
     
 
@@ -664,6 +712,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Giocatore">
         <owl:equivalentClass>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#provieneDa"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://schema.org/City"/>
@@ -685,7 +739,7 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     </owl:Class>
     
 
@@ -698,9 +752,47 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ParticipantRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#participatingInEvent"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#playerParticipating"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Partita -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn"/>
@@ -755,6 +847,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Proprietario">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Staff"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Ruolo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     
 
 
