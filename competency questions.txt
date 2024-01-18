@@ -1,8 +1,9 @@
-Chi ha vinto il campionato nba del 1994?
-Qual è stato il numero di vittorie e sconfitte del real madrid, nella stagione 2015-16 di eurolega?
-Chi ha vinto il premio di MVP della stagione del 2023 del campionato nba?
-Dove è stata giocata una certa partita? (palazzetto/città)
-Quali sono i premi individuali di un certo giocatore?
-I quale squadra ha giocato un certo giocatore in un certo anno?
-Qual è la classifica generale di un certo campionato?
-Quale allenatore ha allenato la squadra dei Lakers nel 2021?
+
+\item Chi ha vinto il campionato nba del 1994?
+\item Qual è stato il numero di vittorie e sconfitte del real madrid, nella stagione 2015-16 di eurolega?
+\item Chi ha vinto il premio di MVP della stagione del 2023 del campionato nba?
+\item Dove è stata giocata una certa partita? (palazzetto/città)
+\item Quali sono i premi individuali di un certo giocatore?
+\item I quale squadra ha giocato un certo giocatore in un certo anno?
+\item Qual è la classifica generale di un certo campionato?
+\item Quale allenatore ha allenato la squadra dei Lakers nel 2021?
