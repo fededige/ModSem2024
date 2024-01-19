@@ -1,0 +1,1309 @@
+@prefix : <http://www.semanticweb.org/ModSem/Basketball_materialized#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ModSem/Basketball_materialized> .
+
+<http://www.semanticweb.org/ModSem/Basketball_materialized> rdf:type owl:Ontology ;
+                                                             <http://purl.org/dc/elements/1.1/creator> "Federico di Geronimo"@it ,
+                                                                                                       "Luca Bonamico"@it ;
+                                                             <http://purl.org/dc/elements/1.1/date> "2024-01-19T17:00:00"^^xsd:dateTime ;
+                                                             <http://purl.org/dc/elements/1.1/description> "Ontologia che tratta i campionati principali di pallacanestro europei e americani, le squadre che vi partecipano, i premi che vengono assegnati a squadre e giocatori a fine stagione, i giocatori che compongono le squadre e luoghi geografici dove le partite vengono disputate."@it ;
+                                                             <http://purl.org/dc/elements/1.1/title> "BasketBall Ontology"@en ;
+                                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "basketball"@en ;
+                                                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/ModSem/Basketball" ;
+                                                             rdfs:label "basketballOntology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ModSem/Basketball#appartiene
+<http://www.semanticweb.org/ModSem/Basketball#appartiene> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#compostaDa> ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                          rdfs:comment "Proprietà che indica da quali persone sono composte le squadre"@it ;
+                                                          rdfs:label "Appartiene a squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#assegnatoA
+<http://www.semanticweb.org/ModSem/Basketball#assegnatoA> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#haVinto> ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ;
+                                                          rdfs:comment "Proprietà che indica che un premio è stato assegnato ad un Partecipante"@it ;
+                                                          rdfs:label "Assegnato a Partecipante"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#compostaDa
+<http://www.semanticweb.org/ModSem/Basketball#compostaDa> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                          rdfs:comment "Proprietà che indica che una squadra è comosta da persone"@it ;
+                                                          rdfs:label "Composta da persona" .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#gioca
+<http://www.semanticweb.org/ModSem/Basketball#gioca> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#èGiocataDa> ;
+                                                     rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                     rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                     rdfs:comment "Proprietà che indica che una squadra gioca una partita"@it ;
+                                                     rdfs:label "Gioca partita"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haCittà
+<http://www.semanticweb.org/ModSem/Basketball#haCittà> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Regione> ;
+                                                       rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Città> ;
+                                                       rdfs:comment "Proprietà che indica che una regione contiene una città"@it ;
+                                                       rdfs:label "Ha città"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haClassificaConference
+<http://www.semanticweb.org/ModSem/Basketball#haClassificaConference> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                                      rdfs:range <http://www.semanticweb.org/ModSem/Basketball#ClassificaConference> ;
+                                                                      rdfs:label "Ha classifica conference"@it ,
+                                                                                 "Proprietà che indica che una stagione ha una classifca Conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale
+<http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale> rdf:type owl:ObjectProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                                    rdfs:range <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale> ;
+                                                                    rdfs:comment "Proprietà che indica che una stagione ha una classifca generale"@it ;
+                                                                    rdfs:label "Ha classifica generale"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haConference
+<http://www.semanticweb.org/ModSem/Basketball#haConference> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                            rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                            rdfs:comment "Proprietà che indica che una stagione è composta da una conference"@it ;
+                                                            rdfs:label "Ha conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haPalazzetto
+<http://www.semanticweb.org/ModSem/Basketball#haPalazzetto> rdf:type owl:ObjectProperty ;
+                                                            owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#situatoIn> ;
+                                                            rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Città> ;
+                                                            rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                            rdfs:comment "Proprietà che indica che un palazzetto è situato in una città"@it ;
+                                                            rdfs:label "Ha palazzetto"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haPartita
+<http://www.semanticweb.org/ModSem/Basketball#haPartita> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                         rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                         owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#haConference>
+                                                                                  <http://www.semanticweb.org/ModSem/Basketball#partecipaConference>
+                                                                                  <http://www.semanticweb.org/ModSem/Basketball#gioca>
+                                                                                ) ;
+                                                         rdfs:label "Ha partita"@it ,
+                                                                    "Proprietà che indica che una partita è giocata in una stagione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haPremio
+<http://www.semanticweb.org/ModSem/Basketball#haPremio> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                        rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                        rdfs:comment "Proprietà che indica che duranrte una stagione viene assegnato un premio"@it ;
+                                                        rdfs:label "Ha premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haRegione
+<http://www.semanticweb.org/ModSem/Basketball#haRegione> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Nazione> ;
+                                                         rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Regione> ;
+                                                         rdfs:comment "Proprietà che indica che una nazione contiene una regione"@it ;
+                                                         rdfs:label "Ha regione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haRuolo
+<http://www.semanticweb.org/ModSem/Basketball#haRuolo> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                       rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                       owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole>
+                                                                                <http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant>
+                                                                              ) ;
+                                                       rdfs:comment "Proprietà che indica che un giocatore ha un ruolo specifico"@it ;
+                                                       rdfs:label "Ha ruolo"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haStagione
+<http://www.semanticweb.org/ModSem/Basketball#haStagione> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                          rdfs:comment "Proprietà che indica che un campionato di basket è composto da stagioni"@it ;
+                                                          rdfs:label "Ha stagione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#haVinto
+<http://www.semanticweb.org/ModSem/Basketball#haVinto> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ;
+                                                       rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                       rdfs:comment "Proprietà che indica che partecipante ha vinto un premio"@it ;
+                                                       rdfs:label "Ha vinto"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating
+<http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating> rdf:type owl:ObjectProperty ;
+                                                                      owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> ;
+                                                                      rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                                      rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                                      rdfs:comment "Proprietà che indica che unaparttia è giocata da un giocatore"@it ;
+                                                                      rdfs:label "hasPlayerParticipating"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà
+<http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Nazione> ;
+                                                              rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Città> ;
+                                                              owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#haRegione>
+                                                                                       <http://www.semanticweb.org/ModSem/Basketball#haCittà>
+                                                                                     ) ;
+                                                              rdfs:comment "Proprietà che indica che una nazione contiene una città"@it ;
+                                                              rdfs:label "Nazione ha città" .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ospitaPartita
+<http://www.semanticweb.org/ModSem/Basketball#ospitaPartita> rdf:type owl:ObjectProperty ;
+                                                             owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> ;
+                                                             rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                             rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                             rdfs:comment "Proprietà che indica che un palazzetto ospita una partita"@it ;
+                                                             rdfs:label "Ospita partita"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#partecipaConference
+<http://www.semanticweb.org/ModSem/Basketball#partecipaConference> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                   rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                                   rdfs:comment "Proprietà che indica che una squadra partecipa ad una conference"@it ;
+                                                                   rdfs:label "Partecipa conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#participatingInEvent
+<http://www.semanticweb.org/ModSem/Basketball#participatingInEvent> rdf:type owl:ObjectProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> ;
+                                                                    rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                                    rdfs:label "participatingInEvent"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra
+<http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> rdf:type owl:ObjectProperty ;
+                                                                             rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                                             rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                                             owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#appartiene>
+                                                                                                      <http://www.semanticweb.org/ModSem/Basketball#haVinto>
+                                                                                                    ) ;
+                                                                             rdfs:comment "Proprietà che indica che una persona ha vinto un premio di squadra" ;
+                                                                             rdfs:label "Persona ha vinto premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn
+<http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                                   rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                                   owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#playerParticipating>
+                                                                                            <http://www.semanticweb.org/ModSem/Basketball#participatingInEvent>
+                                                                                          ) ;
+                                                                   rdfs:label "playerParticipantIn"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#playerParticipating
+<http://www.semanticweb.org/ModSem/Basketball#playerParticipating> rdf:type owl:ObjectProperty ;
+                                                                   owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole> ;
+                                                                   rdf:type owl:FunctionalProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> ;
+                                                                   rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                                   rdfs:label "playerParticipating"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole
+<http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                                         rdfs:range <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> ;
+                                                                         rdfs:label "playerParticipatingByRole"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto
+<http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto> rdf:type owl:ObjectProperty ;
+                                                                  owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra> ;
+                                                                  rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                  rdfs:range <http://schema.org/StadiumOrArena> ;
+                                                                  rdfs:comment "Proprietà che indica che una squadra possiede un palazzetto"@it ;
+                                                                  rdfs:label "Possiede palazzetto"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#provieneDa
+<http://www.semanticweb.org/ModSem/Basketball#provieneDa> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Città> ;
+                                                          rdfs:comment "Proprietà che indica che una persona proviene da una città" ;
+                                                          rdfs:label "Proviene da"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant
+<http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant> rdf:type owl:ObjectProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> ;
+                                                                 rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                                 rdfs:label "roleOfParticipant"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#situatoIn
+<http://www.semanticweb.org/ModSem/Basketball#situatoIn> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                         rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Città> ;
+                                                         rdfs:comment "Proprietà che indica che un palazzetto è situato in una città"@it ;
+                                                         rdfs:label "Situato in"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èGiocataDa
+<http://www.semanticweb.org/ModSem/Basketball#èGiocataDa> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                          rdfs:comment "Proprietà che indica che una partita è giocata da una squadra"@it ;
+                                                          rdfs:label "È giocata da"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa
+<http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa> rdf:type owl:ObjectProperty ;
+                                                              rdfs:subPropertyOf <http://www.semanticweb.org/ModSem/Basketball#èGiocataDa> ,
+                                                                                 [ owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#gioca>
+                                                                                 ] ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                              rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                              rdfs:comment "Proprietà che indica che una partita è giocata dalla squadra di casa"@it ;
+                                                              rdfs:label "È giocata da squadra di casa"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èGiocataDaOspiti
+<http://www.semanticweb.org/ModSem/Basketball#èGiocataDaOspiti> rdf:type owl:ObjectProperty ;
+                                                                rdfs:subPropertyOf <http://www.semanticweb.org/ModSem/Basketball#èGiocataDa> ,
+                                                                                   [ owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#gioca>
+                                                                                   ] ;
+                                                                rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                                rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                rdfs:comment "Proprietà che indica che una partita è giocata dalla squadra ospite"@it ;
+                                                                rdfs:label "È giocata da squadra ospite"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èGiocataIn
+<http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                          rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                          owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa>
+                                                                                   <http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto>
+                                                                                 ) ;
+                                                          rdfs:comment "Proprietà che indica che una partia è giocata in un palazzetto"@it ;
+                                                          rdfs:label "È giocata in palazzetto"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra
+<http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                                   rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                   rdfs:comment "Proprietà che indica che un palazzetto è posseduto da una squadra"@it ;
+                                                                   rdfs:label "È posseduto da squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#èSuperioreInClassifica
+<http://www.semanticweb.org/ModSem/Basketball#èSuperioreInClassifica> rdf:type owl:ObjectProperty ,
+                                                                               owl:TransitiveProperty ;
+                                                                      rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                      rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                      rdfs:comment "Proprietà che indica che una squadra è più in alto in classifica rispetto ad un'altra squadra"@it ;
+                                                                      rdfs:label "È superiore in classifica"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ModSem/Basketball#Altezza
+<http://www.semanticweb.org/ModSem/Basketball#Altezza> rdf:type owl:DatatypeProperty ,
+                                                                owl:FunctionalProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                       rdfs:range xsd:int ;
+                                                       rdfs:comment "Altezza di una persona"@it ;
+                                                       rdfs:label "Altezza" .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica
+<http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Classifica> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "Anno a cui si riferisce una classifica"@it ;
+                                                              rdfs:label "Anno classifica"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#AnnoConference
+<http://www.semanticweb.org/ModSem/Basketball#AnnoConference> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "Anno a cui si riferisce una conferece"@it ;
+                                                              rdfs:label "Anno conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#AnnoPremio
+<http://www.semanticweb.org/ModSem/Basketball#AnnoPremio> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:comment "Anno a cui si riferisce un premio"@it ;
+                                                          rdfs:label "Anno premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#AnnoSquadra
+<http://www.semanticweb.org/ModSem/Basketball#AnnoSquadra> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                           rdfs:range xsd:string ;
+                                                           rdfs:comment "Anno a cui si riferisce una composizione di una squadra"@it ;
+                                                           rdfs:label "Anno squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#AnnoStagione
+<http://www.semanticweb.org/ModSem/Basketball#AnnoStagione> rdf:type owl:DatatypeProperty ,
+                                                                     owl:FunctionalProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                            rdfs:range xsd:string ;
+                                                            rdfs:comment "Anno a cui si riferisce una stagione"@it ;
+                                                            rdfs:label "Anno stagione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#CapienzaPalazzetto
+<http://www.semanticweb.org/ModSem/Basketball#CapienzaPalazzetto> rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                                  rdfs:range xsd:int ;
+                                                                  rdfs:comment "Capienza di un palazzetto"@it ;
+                                                                  rdfs:label "Capienza palazzetto"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#DataAssegnazionePremio
+<http://www.semanticweb.org/ModSem/Basketball#DataAssegnazionePremio> rdf:type owl:DatatypeProperty ,
+                                                                               owl:FunctionalProperty ;
+                                                                      rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                                      rdfs:range xsd:dateTime ;
+                                                                      rdfs:comment "Data in cui un premio è stato assegnato"@it ;
+                                                                      rdfs:label "Data assegnazione premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#DataDiFondazione
+<http://www.semanticweb.org/ModSem/Basketball#DataDiFondazione> rdf:type owl:DatatypeProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                                rdfs:range xsd:string ;
+                                                                rdfs:comment "Data in cui una squadra è stata fondata"@it ;
+                                                                rdfs:label "Data di fondazione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#DataDiNascita
+<http://www.semanticweb.org/ModSem/Basketball#DataDiNascita> rdf:type owl:DatatypeProperty ,
+                                                                      owl:FunctionalProperty ;
+                                                             rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                                             rdfs:range xsd:dateTime ;
+                                                             rdfs:comment "Data di nascita di una persona"@it ;
+                                                             rdfs:label "Data di nascita"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#DataPartita
+<http://www.semanticweb.org/ModSem/Basketball#DataPartita> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                           rdfs:range xsd:dateTime ;
+                                                           rdfs:comment "Data in cui si è svolta una partita"@it ;
+                                                           rdfs:label "Data partita"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#DescrizionePremio
+<http://www.semanticweb.org/ModSem/Basketball#DescrizionePremio> rdf:type owl:DatatypeProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                                 rdfs:range xsd:string ;
+                                                                 rdfs:comment "Descrizione di un premio"@it ;
+                                                                 rdfs:label "Descrizione premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#GiocatoreRitirato
+<http://www.semanticweb.org/ModSem/Basketball#GiocatoreRitirato> rdf:type owl:DatatypeProperty ,
+                                                                          owl:FunctionalProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
+                                                                 rdfs:range xsd:boolean ;
+                                                                 rdfs:comment "Indica se un giocatore è ritirato o meno"@it ;
+                                                                 rdfs:label "Giocatore ritirato"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeAgent
+<http://www.semanticweb.org/ModSem/Basketball#NomeAgent> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:comment "Nome di un agent"@it ;
+                                                         rdfs:label "Nome agent"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeCampionato
+<http://www.semanticweb.org/ModSem/Basketball#NomeCampionato> rdf:type owl:DatatypeProperty ,
+                                                                       owl:FunctionalProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "Il nome del campionato"@it ;
+                                                              rdfs:label "Nome campionato"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeClassifica
+<http://www.semanticweb.org/ModSem/Basketball#NomeClassifica> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Classifica> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "Il nome della classifica"@it ;
+                                                              rdfs:label "Nome classifica"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeCognomePersona
+<http://www.semanticweb.org/ModSem/Basketball#NomeCognomePersona> rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> ;
+                                                                  rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                                                  rdfs:range xsd:string ;
+                                                                  rdfs:comment "Il nome e il cognome di una persona"@it ;
+                                                                  rdfs:label "Nome e congome persona"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeConference
+<http://www.semanticweb.org/ModSem/Basketball#NomeConference> rdf:type owl:DatatypeProperty ,
+                                                                       owl:FunctionalProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "Nome di una conference"@it ;
+                                                              rdfs:label "Nome conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomePremio
+<http://www.semanticweb.org/ModSem/Basketball#NomePremio> rdf:type owl:DatatypeProperty ,
+                                                                   owl:FunctionalProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:comment "Nome di un premio"@it ;
+                                                          rdfs:label "Nome premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#NomeSquadra
+<http://www.semanticweb.org/ModSem/Basketball#NomeSquadra> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:subPropertyOf <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> ;
+                                                           rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Squadra> ;
+                                                           rdfs:range xsd:string ;
+                                                           rdfs:comment "Il nome con cui è conosciuta una squadra"@it ;
+                                                           rdfs:label "Nome squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Peso
+<http://www.semanticweb.org/ModSem/Basketball#Peso> rdf:type owl:DatatypeProperty ,
+                                                             owl:FunctionalProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
+                                                    rdfs:range xsd:float ;
+                                                    rdfs:comment "Il peso di una persona"@it ;
+                                                    rdfs:label "Peso"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#PlaceName
+<http://www.semanticweb.org/ModSem/Basketball#PlaceName> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain <http://schema.org/Place> ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:comment "Il nome con il quale in luogo è conosciuto"@it ;
+                                                         rdfs:label "Nome Luogo"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#RisultatoPartita
+<http://www.semanticweb.org/ModSem/Basketball#RisultatoPartita> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                                rdfs:range xsd:string ;
+                                                                rdfs:comment "Il risultato di una partita espresso dal punteggio della squadra di casa seguito dal punteggio della squadra ospite"@it ;
+                                                                rdfs:label "Risultato partita"@it .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/AdministrativeArea
+<http://schema.org/AdministrativeArea> rdf:type owl:Class ;
+                                       owl:equivalentClass <http://www.semanticweb.org/ModSem/Basketball#Regione> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haCittà> ;
+                                                             owl:someValuesFrom <http://schema.org/City>
+                                                           ] ;
+                                       rdfs:subClassOf <http://schema.org/Place> ,
+                                                       <http://www.semanticweb.org/ModSem/Basketball#Luogo> .
+
+
+###  http://schema.org/City
+<http://schema.org/City> rdf:type owl:Class ;
+                         owl:equivalentClass <http://www.semanticweb.org/ModSem/Basketball#Città> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haPalazzetto> ;
+                                               owl:someValuesFrom <http://schema.org/StadiumOrArena>
+                                             ] ;
+                         rdfs:subClassOf <http://schema.org/Place> ,
+                                         <http://www.semanticweb.org/ModSem/Basketball#Luogo> .
+
+
+###  http://schema.org/Country
+<http://schema.org/Country> rdf:type owl:Class ;
+                            owl:equivalentClass <http://www.semanticweb.org/ModSem/Basketball#Nazione> ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haRegione> ;
+                                                  owl:someValuesFrom <http://schema.org/AdministrativeArea>
+                                                ] ;
+                            rdfs:subClassOf <http://schema.org/Place> ,
+                                            <http://www.semanticweb.org/ModSem/Basketball#Luogo> .
+
+
+###  http://schema.org/Place
+<http://schema.org/Place> rdf:type owl:Class ;
+                          owl:equivalentClass <http://www.semanticweb.org/ModSem/Basketball#Luogo> .
+
+
+###  http://schema.org/StadiumOrArena
+<http://schema.org/StadiumOrArena> rdf:type owl:Class ;
+                                   owl:equivalentClass <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#ospitaPartita> ;
+                                                         owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra> ;
+                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Squadra>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#situatoIn> ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass <http://schema.org/City>
+                                                       ] ;
+                                   rdfs:subClassOf <http://schema.org/Place> ,
+                                                   <http://www.semanticweb.org/ModSem/Basketball#Luogo> .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Ala
+<http://www.semanticweb.org/ModSem/Basketball#Ala> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ rdf:type owl:Class ;
+                                                                         owl:oneOf ( <http://www.semanticweb.org/ModSem/Basketball#Ala_grande>
+                                                                                     <http://www.semanticweb.org/ModSem/Basketball#Ala_piccola>
+                                                                                   )
+                                                                       ] ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                   rdfs:comment "Particolare posizione della palla canestro, che si riferice alle posizioni di Ala piccolo e Ala grande"@it ;
+                                                   rdfs:label "Ala"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Allenatore
+<http://www.semanticweb.org/ModSem/Basketball#Allenatore> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Staff> ;
+                                                          rdfs:comment "Colui che allena un atleta o una squadra"@it ;
+                                                          rdfs:label "Allenatore"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Assistente
+<http://www.semanticweb.org/ModSem/Basketball#Assistente> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Allenatore> ;
+                                                          rdfs:comment "Aiutante del primo allenatore"@it ;
+                                                          rdfs:label "Assistente"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano
+<http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> ;
+                                                                    rdfs:comment "Competizione cestistica all'interno della quale competono delle squadre secondo la struttura del campionato americano"@it ;
+                                                                    rdfs:label "Campionato Americano di Basket"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo
+<http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> ;
+                                                                  rdfs:comment "Competizione cestistica all'interno della quale competono delle squadre secondo la struttura del campionato europeo"@it ;
+                                                                  rdfs:label "Campionato Europeo di Basket"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket
+<http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> rdf:type owl:Class ;
+                                                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haStagione> ;
+                                                                                          owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Stagione>
+                                                                                        ] ;
+                                                                    rdfs:comment "Competizione cestistica all'interno della quale competono delle squadre"@it ;
+                                                                    rdfs:label "Campionato di Basket"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Centro
+<http://www.semanticweb.org/ModSem/Basketball#Centro> rdf:type owl:Class ,
+                                                               owl:NamedIndividual ;
+                                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                                            owl:oneOf ( <http://www.semanticweb.org/ModSem/Basketball#Centro>
+                                                                                      )
+                                                                          ] ;
+                                                      rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Ruolo> .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Città
+<http://www.semanticweb.org/ModSem/Basketball#Città> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://schema.org/Place> ,
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                     rdfs:comment "Insediamento umano esteso e stabile"@it ;
+                                                     rdfs:label "Città"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Classifica
+<http://www.semanticweb.org/ModSem/Basketball#Classifica> rdf:type owl:Class ;
+                                                          rdfs:comment "Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre"@it ;
+                                                          rdfs:label "Classifica"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ClassificaConference
+<http://www.semanticweb.org/ModSem/Basketball#ClassificaConference> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Classifica> ;
+                                                                    rdfs:comment "Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre che partecipano ad una conference"@it ;
+                                                                    rdfs:label "Classifica Conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale
+<http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Classifica> ;
+                                                                  rdfs:comment "Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre che partecipano ad un campionato"@it ;
+                                                                  rdfs:label "Classifica Generale"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Conference
+<http://www.semanticweb.org/ModSem/Basketball#Conference> rdf:type owl:Class ;
+                                                          rdfs:comment "Sottogruppo di squadre divise per prossimità geografica"@it ;
+                                                          rdfs:label "Conference"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Fisioterapista
+<http://www.semanticweb.org/ModSem/Basketball#Fisioterapista> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Staff> ;
+                                                              rdfs:comment "Colui che elabora ed attua gli interventi diretti alla prevenzione, alla cura e alla riabilitazione delle patologie motorie"@it ;
+                                                              rdfs:label "Fisioterapista"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#GeneralManager
+<http://www.semanticweb.org/ModSem/Basketball#GeneralManager> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Staff> ;
+                                                              rdfs:comment "dirigente con la responsabilità generale di una squadra"@it ;
+                                                              rdfs:label "General Manager"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Giocatore
+<http://www.semanticweb.org/ModSem/Basketball#Giocatore> rdf:type owl:Class ;
+                                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> ;
+                                                                               owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                                                                             ] ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Persona> ,
+                                                                         <http://xmlns.com/foaf/0.1/Person> ;
+                                                         rdfs:comment "Professionista di uno sport"@it ;
+                                                         rdfs:label "Giocatore"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Guardia
+<http://www.semanticweb.org/ModSem/Basketball#Guardia> rdf:type owl:Class ;
+                                                       owl:equivalentClass [ rdf:type owl:Class ;
+                                                                             owl:oneOf ( <http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice>
+                                                                                         <http://www.semanticweb.org/ModSem/Basketball#Playmaker>
+                                                                                       )
+                                                                           ] ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                       rdfs:comment "Particolare posizione della palla canestro, che si riferice alle posizioni di Playmaker e Guardia tiratrice"@it ;
+                                                       rdfs:label "Guardia"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Luogo
+<http://www.semanticweb.org/ModSem/Basketball#Luogo> rdf:type owl:Class ;
+                                                     rdfs:comment "Entità che hanno un'estensione fisica"@it ;
+                                                     rdfs:label "Luogo"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Nazione
+<http://www.semanticweb.org/ModSem/Basketball#Nazione> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://schema.org/Place> ,
+                                                                       <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                       rdfs:comment "divisione politica all'interno di una certa entità geografica"@it ;
+                                                       rdfs:label "Nazione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Palazzetto
+<http://www.semanticweb.org/ModSem/Basketball#Palazzetto> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://schema.org/Place> ,
+                                                                          <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                          rdfs:comment "Impianto atto ad ospitare eventi sportivi, musicali e di intrattenimento"@it ;
+                                                          rdfs:label "Palazzetto" .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Partecipante
+<http://www.semanticweb.org/ModSem/Basketball#Partecipante> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> ;
+                                                            rdfs:comment "Agente che partecipa ad un Campionato"@it ;
+                                                            rdfs:label "Partecipante"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ParticipantRole
+<http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> rdf:type owl:Class ;
+                                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#participatingInEvent> ;
+                                                                                     owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#playerParticipating> ;
+                                                                                     owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Giocatore>
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant> ;
+                                                                                     owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Ruolo>
+                                                                                   ] ;
+                                                               rdfs:comment "Una situazione che rappresenta il/i ruolo/i di uno specifico soggetto (o soggetti) che partecipa a un evento (o eventi)."@it ;
+                                                               rdfs:label "ParticipantRole"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Partita
+<http://www.semanticweb.org/ModSem/Basketball#Partita> rdf:type owl:Class ;
+                                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating> ;
+                                                                             owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Giocatore>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> ;
+                                                                             owl:someValuesFrom <http://schema.org/StadiumOrArena>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa> ;
+                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Squadra>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaOspiti> ;
+                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Squadra>
+                                                                           ] ;
+                                                       rdfs:comment "Evento sportivo nel quale si affrontano dei partecipanti"@it ;
+                                                       rdfs:label "Partita"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Persona
+<http://www.semanticweb.org/ModSem/Basketball#Persona> rdf:type owl:Class ;
+                                                       owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haVinto> ;
+                                                                             owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#provieneDa> ;
+                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://schema.org/City>
+                                                                           ] ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ;
+                                                       rdfs:comment "individuo con una coscienza e identità"@it ;
+                                                       rdfs:label "Persona"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Premio
+<http://www.semanticweb.org/ModSem/Basketball#Premio> rdf:type owl:Class ;
+                                                      rdfs:comment "attestazione assegnata a una persona, gruppo di persone come ringraziamento o per la propria distinzione"@it ;
+                                                      rdfs:label "Premio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale
+<http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                                  rdfs:comment "Premio assegnato ad una singola persona"@it ;
+                                                                  rdfs:label "Premio individuale"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra
+<http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
+                                                              rdfs:comment "Premio assegnato ad una squadra"@it ;
+                                                              rdfs:label "Premio di squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Preparatore_Atletico
+<http://www.semanticweb.org/ModSem/Basketball#Preparatore_Atletico> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Allenatore> ;
+                                                                    rdfs:comment "Colui che si occupa della preparazione fisica dei giocatori"@it ;
+                                                                    rdfs:label "Preparatore Atletico"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore
+<http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Allenatore> ;
+                                                                rdfs:comment "della preparazione fisica e tattica di un atleta o di una squadra"@it ;
+                                                                rdfs:label "Primo Allenatore"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Proprietario
+<http://www.semanticweb.org/ModSem/Basketball#Proprietario> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Staff> ;
+                                                            rdfs:comment "Colui che possiede una squadra"@it ;
+                                                            rdfs:label "Proprietario"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Regione
+<http://www.semanticweb.org/ModSem/Basketball#Regione> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://schema.org/Place> ,
+                                                                       <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                       rdfs:comment "Una regione geografica"@it ;
+                                                       rdfs:label "Regione"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Ruolo
+<http://www.semanticweb.org/ModSem/Basketball#Ruolo> rdf:type owl:Class ;
+                                                     rdfs:comment "Posizione in campo occupata da un giocatore"@it ;
+                                                     rdfs:label "Ruolo"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Squadra
+<http://www.semanticweb.org/ModSem/Basketball#Squadra> rdf:type owl:Class ;
+                                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haVinto> ;
+                                                                             owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#compostaDa> ;
+                                                                             owl:minQualifiedCardinality "8"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Giocatore>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto> ;
+                                                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://schema.org/StadiumOrArena>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#compostaDa> ;
+                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore>
+                                                                           ] ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#compostaDa> ;
+                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                             owl:onClass <http://www.semanticweb.org/ModSem/Basketball#Proprietario>
+                                                                           ] ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ;
+                                                       rdfs:comment "Gruppo di persone associate tra di loro in una competizione sportiva"@it ;
+                                                       rdfs:label "Squadra"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Staff
+<http://www.semanticweb.org/ModSem/Basketball#Staff> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Persona> ,
+                                                                     <http://xmlns.com/foaf/0.1/Person> ;
+                                                     rdfs:comment "Componenti di una squadra che non sono giocatori"@it ;
+                                                     rdfs:label "Staff"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Stagione
+<http://www.semanticweb.org/ModSem/Basketball#Stagione> rdf:type owl:Class ;
+                                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haClassificaConference> ;
+                                                                              owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#ClassificaConference>
+                                                                            ] ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haConference> ;
+                                                                              owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Conference>
+                                                                            ] ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haPartita> ;
+                                                                              owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                                                                            ] ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haPremio> ;
+                                                                              owl:someValuesFrom <http://www.semanticweb.org/ModSem/Basketball#Premio>
+                                                                            ] ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale> ;
+                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                              owl:onClass <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale>
+                                                                            ] ;
+                                                        rdfs:comment "stagione di un evento sportivo ricorrente"@it ;
+                                                        rdfs:label "Stagione"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Partecipante> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ModSem/Basketball#Akron
+<http://www.semanticweb.org/ModSem/Basketball#Akron> rdf:type owl:NamedIndividual ,
+                                                              <http://schema.org/City> ,
+                                                              <http://schema.org/Place> ,
+                                                              <http://www.semanticweb.org/ModSem/Basketball#Città> ,
+                                                              <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                     <http://www.semanticweb.org/ModSem/Basketball#PlaceName> "Akron" ;
+                                                     rdfs:comment "Città dell'Ohio"@it ;
+                                                     rdfs:label "Akron"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Ala_grande
+<http://www.semanticweb.org/ModSem/Basketball#Ala_grande> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Ala> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                          rdfs:comment "L'ala grande, o il \"quattro\", gioca invece solitamente vicino al canestro anche se, specialmente nei campionati europei, è sovente dotata di un buon tiro da dentro e di una discreta mobilità per aiutare il centro nella conquista dei rimbalzi."@it ;
+                                                          rdfs:label "Ala grande"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Ala_piccola
+<http://www.semanticweb.org/ModSem/Basketball#Ala_piccola> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.semanticweb.org/ModSem/Basketball#Ala> ,
+                                                                    <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                           rdfs:comment "L'ala piccola, o \"tre\", è un giocatore con un'ottima capacità sia di penetrazione sia di tiro."@it ;
+                                                           rdfs:label "Ala piccola"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#CampionatoNBA
+<http://www.semanticweb.org/ModSem/Basketball#CampionatoNBA> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano> ,
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket> ;
+                                                             <http://www.semanticweb.org/ModSem/Basketball#haStagione> <http://www.semanticweb.org/ModSem/Basketball#Stagione2020> ;
+                                                             <http://www.semanticweb.org/ModSem/Basketball#NomeCampionato> "National Basketball Association Championship" ;
+                                                             rdfs:comment "Campionato di pallacanestro professionistica del Nord America."@it ;
+                                                             rdfs:label "Campionato NBA"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Centro
+<http://www.semanticweb.org/ModSem/Basketball#Centro> rdf:type owl:NamedIndividual ,
+                                                               owl:Class ,
+                                                               <http://www.semanticweb.org/ModSem/Basketball#Centro> ,
+                                                               <http://www.semanticweb.org/ModSem/Basketball#Ruolo> .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020
+<http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.semanticweb.org/ModSem/Basketball#Classifica> ,
+                                                                                        <http://www.semanticweb.org/ModSem/Basketball#ClassificaConference> ;
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica> "2019-2020" ;
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#NomeClassifica> "Classifica Eastern" ;
+                                                                               rdfs:comment "Classifica delle squadre che partecipano alla eastern conference del 2020"@it ;
+                                                                               rdfs:label "Classifica eastern conference 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020
+<http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020> rdf:type owl:NamedIndividual ,
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#Classifica> ,
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale> ;
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica> "2019-2020" ;
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#NomeClassifica> "Classifica Regular Season" ;
+                                                                      rdfs:comment "Classifica delle squadre che partecipano alla stagione NBA del 2020"@it ;
+                                                                      rdfs:label "Classifica generale 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020
+<http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.semanticweb.org/ModSem/Basketball#Classifica> ,
+                                                                                        <http://www.semanticweb.org/ModSem/Basketball#ClassificaConference> ;
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica> "2019-2020" ;
+                                                                               <http://www.semanticweb.org/ModSem/Basketball#NomeClassifica> "Classifica Western" ;
+                                                                               rdfs:comment "Classifica delle squadre che partecipano alla western conference del 2020"@it ;
+                                                                               rdfs:label "Classifica western conference 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena
+<http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena> rdf:type owl:NamedIndividual ,
+                                                                         <http://schema.org/Place> ,
+                                                                         <http://schema.org/StadiumOrArena> ,
+                                                                         <http://www.semanticweb.org/ModSem/Basketball#Luogo> ,
+                                                                         <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
+                                                                <http://www.semanticweb.org/ModSem/Basketball#ospitaPartita> <http://www.semanticweb.org/ModSem/Basketball#Partita1> ;
+                                                                <http://www.semanticweb.org/ModSem/Basketball#situatoIn> <http://www.semanticweb.org/ModSem/Basketball#LosAngeles> ;
+                                                                <http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                                <http://www.semanticweb.org/ModSem/Basketball#CapienzaPalazzetto> "19067"^^xsd:int ;
+                                                                <http://www.semanticweb.org/ModSem/Basketball#PlaceName> "Crypto.com Arena" ;
+                                                                rdfs:comment "Palazzetto dei Los Angeles Lakers situato a Los Angeles"@it ;
+                                                                rdfs:label "Crypto.com arena"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#EasternConference2020
+<http://www.semanticweb.org/ModSem/Basketball#EasternConference2020> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                                     owl:differentFrom <http://www.semanticweb.org/ModSem/Basketball#WesternConference2020> ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#AnnoConference> "2019-2020" ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#NomeConference> "EasternConference" ;
+                                                                     rdfs:comment "Conference est della stagione NBA del 2020"@it ;
+                                                                     rdfs:label "Eastern conference 2020"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#FrankVogel
+<http://www.semanticweb.org/ModSem/Basketball#FrankVogel> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Allenatore> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Persona> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Staff> ,
+                                                                   <http://xmlns.com/foaf/0.1/Agent> ,
+                                                                   <http://xmlns.com/foaf/0.1/Person> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#appartiene> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> <http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#DataDiNascita> "1973-06-21T00:00:00"^^xsd:dateTime ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> "Frank Vogel" ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeCognomePersona> "Frank Vogel" ;
+                                                          rdfs:comment "Allenatore dei Lakers nel 2020"@it ;
+                                                          rdfs:label "Frank Vogel"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice
+<http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/ModSem/Basketball#Guardia> ,
+                                                                          <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                                 rdfs:comment "Chiamato anche il \"due\", si tratta solitamente, come si intuisce anche dal nome, del miglior tiratore da 2 punti della squadra (da dentro l'area perché appunto con questa altezza è più difficile mettere a segno punti da fuori), che sia però anche in grado di penetrare verso il canestro quando serve."@it ;
+                                                                 rdfs:label "Guardia tiratrice"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Lakers2020
+<http://www.semanticweb.org/ModSem/Basketball#Lakers2020> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Squadra> ,
+                                                                   <http://xmlns.com/foaf/0.1/Agent> ;
+                                                          owl:differentFrom <http://www.semanticweb.org/ModSem/Basketball#Suns2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#compostaDa> <http://www.semanticweb.org/ModSem/Basketball#FrankVogel> ,
+                                                                                                                    <http://www.semanticweb.org/ModSem/Basketball#LeBronJames> ,
+                                                                                                                    <http://www.semanticweb.org/ModSem/Basketball#RobPelinka> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#gioca> <http://www.semanticweb.org/ModSem/Basketball#Partita1> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#haVinto> <http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#partecipaConference> <http://www.semanticweb.org/ModSem/Basketball#WesternConference2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto> <http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#AnnoSquadra> "2019-2020" ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#DataDiFondazione> "1947" ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> "LosAngeles Lakers" ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeSquadra> "LosAngeles Lakers" ;
+                                                          rdfs:comment "Roster della squadra di NBA di Los Angeles del 2020"@it ;
+                                                          rdfs:label "Los Angeles Lakers 2020"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#LeBronJames
+<http://www.semanticweb.org/ModSem/Basketball#LeBronJames> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ,
+                                                                    <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ,
+                                                                    <http://www.semanticweb.org/ModSem/Basketball#Persona> ,
+                                                                    <http://xmlns.com/foaf/0.1/Agent> ,
+                                                                    <http://xmlns.com/foaf/0.1/Person> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#appartiene> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#haRuolo> <http://www.semanticweb.org/ModSem/Basketball#Ala_piccola> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> <http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole> <http://www.semanticweb.org/ModSem/Basketball#LeBronParticipantRole> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#provieneDa> <http://www.semanticweb.org/ModSem/Basketball#Akron> ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#Altezza> "206"^^xsd:int ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#DataDiNascita> "1984-12-30T09:00:00"^^xsd:dateTime ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#GiocatoreRitirato> "false"^^xsd:boolean ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> "LeBron Raymone James" ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#NomeCognomePersona> "LeBron Raymone James" ;
+                                                           <http://www.semanticweb.org/ModSem/Basketball#Peso> "113.0"^^xsd:float ;
+                                                           rdfs:comment "Giocatore professionista di pallacanestro"@it ;
+                                                           rdfs:label "LeBron James"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#LeBronParticipantRole
+<http://www.semanticweb.org/ModSem/Basketball#LeBronParticipantRole> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole> ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#participatingInEvent> <http://www.semanticweb.org/ModSem/Basketball#Partita1> ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#playerParticipating> <http://www.semanticweb.org/ModSem/Basketball#LeBronJames> ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant> <http://www.semanticweb.org/ModSem/Basketball#Ala_piccola> .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#LosAngeles
+<http://www.semanticweb.org/ModSem/Basketball#LosAngeles> rdf:type owl:NamedIndividual ,
+                                                                   <http://schema.org/City> ,
+                                                                   <http://schema.org/Place> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Città> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Luogo> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#haPalazzetto> <http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#PlaceName> "LosAngeles" ;
+                                                          rdfs:comment "Città della California"@it ;
+                                                          rdfs:label "Los Angeles"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Ohio
+<http://www.semanticweb.org/ModSem/Basketball#Ohio> rdf:type owl:NamedIndividual ,
+                                                             <http://schema.org/AdministrativeArea> ,
+                                                             <http://schema.org/Place> ,
+                                                             <http://www.semanticweb.org/ModSem/Basketball#Luogo> ,
+                                                             <http://www.semanticweb.org/ModSem/Basketball#Regione> ;
+                                                    <http://www.semanticweb.org/ModSem/Basketball#haCittà> <http://www.semanticweb.org/ModSem/Basketball#Akron> ;
+                                                    <http://www.semanticweb.org/ModSem/Basketball#PlaceName> "Ohio" ;
+                                                    rdfs:comment "Stato degli Stati Uniti"@it ;
+                                                    rdfs:label "Ohio"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Partita1
+<http://www.semanticweb.org/ModSem/Basketball#Partita1> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#èGiocataDa> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ,
+                                                                                                                  <http://www.semanticweb.org/ModSem/Basketball#Suns2020> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaOspiti> <http://www.semanticweb.org/ModSem/Basketball#Suns2020> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> <http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#DataPartita> "2020-01-01T00:00:00"^^xsd:dateTime ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#RisultatoPartita> "117-107" ;
+                                                        rdfs:comment "Partita tra i Lakers e i Suns giocata nella stagione NBA 2020"@it ;
+                                                        rdfs:label "Partita Lakers Suns 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Playmaker
+<http://www.semanticweb.org/ModSem/Basketball#Playmaker> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/ModSem/Basketball#Guardia> ,
+                                                                  <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
+                                                         rdfs:comment "Il Playmaker, detto anche \"l'uno\", normalmente è il giocatore con il miglior tiro della squadra e miglior trattamento di palla (passaggi e palleggio)."@it ;
+                                                         rdfs:label "Playmaker"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#RobPelinka
+<http://www.semanticweb.org/ModSem/Basketball#RobPelinka> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#GeneralManager> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Persona> ,
+                                                                   <http://www.semanticweb.org/ModSem/Basketball#Staff> ,
+                                                                   <http://xmlns.com/foaf/0.1/Agent> ,
+                                                                   <http://xmlns.com/foaf/0.1/Person> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#appartiene> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> <http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020> ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#DataDiNascita> "1969-12-23T00:00:00"^^xsd:dateTime ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeAgent> "Rob Pelinka" ;
+                                                          <http://www.semanticweb.org/ModSem/Basketball#NomeCognomePersona> "Rob Pelinka" ;
+                                                          rdfs:comment "General Manager dei laker nella stagione 2020"@it ;
+                                                          rdfs:label "Rob Pelinka"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Stagione2020
+<http://www.semanticweb.org/ModSem/Basketball#Stagione2020> rdf:type owl:NamedIndividual ,
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#Stagione> ;
+                                                            <http://www.semanticweb.org/ModSem/Basketball#haClassificaConference> <http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020> ,
+                                                                                                                                  <http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020> ;
+                                                            <http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale> <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020> ;
+                                                            <http://www.semanticweb.org/ModSem/Basketball#haConference> <http://www.semanticweb.org/ModSem/Basketball#EasternConference2020> ,
+                                                                                                                        <http://www.semanticweb.org/ModSem/Basketball#WesternConference2020> ;
+                                                            <http://www.semanticweb.org/ModSem/Basketball#AnnoStagione> "2019-2020" ;
+                                                            rdfs:comment "Stagione 2020 del campionato NBA"@it ;
+                                                            rdfs:label "Stagione NBA 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#Suns2020
+<http://www.semanticweb.org/ModSem/Basketball#Suns2020> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/ModSem/Basketball#Partecipante> ,
+                                                                 <http://www.semanticweb.org/ModSem/Basketball#Squadra> ,
+                                                                 <http://xmlns.com/foaf/0.1/Agent> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#gioca> <http://www.semanticweb.org/ModSem/Basketball#Partita1> ;
+                                                        <http://www.semanticweb.org/ModSem/Basketball#partecipaConference> <http://www.semanticweb.org/ModSem/Basketball#WesternConference2020> ;
+                                                        rdfs:comment "Roster della squadra di NBA di Phoenix del 2020"@it ;
+                                                        rdfs:label "Phoenix Suns 2020"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020
+<http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#Premio> ,
+                                                                      <http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra> ;
+                                                             <http://www.semanticweb.org/ModSem/Basketball#assegnatoA> <http://www.semanticweb.org/ModSem/Basketball#Lakers2020> ;
+                                                             <http://www.semanticweb.org/ModSem/Basketball#AnnoPremio> "2019-2020" ;
+                                                             <http://www.semanticweb.org/ModSem/Basketball#NomePremio> "Larry O’Brien Championship Trophy" ;
+                                                             rdfs:comment "Larry O’Brien Championship Trophy 2020, consegnato alla squadra che ha vinto la stagione NBA 2020"@it ;
+                                                             rdfs:label "Titolo NBA 2020"@it .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#USA
+<http://www.semanticweb.org/ModSem/Basketball#USA> rdf:type owl:NamedIndividual ,
+                                                            <http://schema.org/Country> ,
+                                                            <http://schema.org/Place> ,
+                                                            <http://www.semanticweb.org/ModSem/Basketball#Luogo> ,
+                                                            <http://www.semanticweb.org/ModSem/Basketball#Nazione> ;
+                                                   <http://www.semanticweb.org/ModSem/Basketball#haRegione> <http://www.semanticweb.org/ModSem/Basketball#Ohio> ;
+                                                   <http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà> <http://www.semanticweb.org/ModSem/Basketball#Akron> ;
+                                                   <http://www.semanticweb.org/ModSem/Basketball#PlaceName> "United States of America" ;
+                                                   rdfs:comment "Nazione del mondo situata in Nord America"@it ;
+                                                   rdfs:label "United States of America"@en .
+
+
+###  http://www.semanticweb.org/ModSem/Basketball#WesternConference2020
+<http://www.semanticweb.org/ModSem/Basketball#WesternConference2020> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/ModSem/Basketball#Conference> ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#AnnoConference> "2019-2020" ;
+                                                                     <http://www.semanticweb.org/ModSem/Basketball#NomeConference> "Western Conference" ;
+                                                                     rdfs:comment "Conference ovest della stagione NBA del 2020"@it ;
+                                                                     rdfs:label "Western conference 2020"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://www.semanticweb.org/ModSem/Basketball#Centro> rdfs:comment "Ruolo occupato da giocatori di grandi dimensioni, che si concentrano su rimbalzi, stoppate."@it ;
+                                                      rdfs:label "Centro"@it .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/ModSem/Basketball#Ala_grande>
+                        <http://www.semanticweb.org/ModSem/Basketball#Ala_piccola>
+                        <http://www.semanticweb.org/ModSem/Basketball#Centro>
+                        <http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice>
+                        <http://www.semanticweb.org/ModSem/Basketball#Playmaker>
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020>
+                        <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020>
+                        <http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020>
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/ModSem/Basketball#FrankVogel>
+                        <http://www.semanticweb.org/ModSem/Basketball#LeBronJames>
+                        <http://www.semanticweb.org/ModSem/Basketball#RobPelinka>
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
