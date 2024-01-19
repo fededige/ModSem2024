@@ -1,15 +1,73 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.semanticweb.org/ModSem/Basketball/"
      xml:base="http://www.semanticweb.org/ModSem/Basketball/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:schema="http://schema.org/"
      xmlns:Basketball="http://www.semanticweb.org/ModSem/Basketball#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/ModSem/Basketball"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ModSem/Basketball">
+        <dc:creator xml:lang="it">Federico di Geronimo</dc:creator>
+        <dc:creator xml:lang="it">Luca Bonamico</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-19T17:00:00</dc:date>
+        <dc:description xml:lang="it">Ontologia che tratta i campionati principali di pallacanestro europei e americani, le squadre che vi partecipano, i premi che vengono assegnati a squadre e giocatori a fine stagione, i giocatori che compongono le squadre e luoghi geografici dove le partite vengono disputate.</dc:description>
+        <dc:title xml:lang="en">BasketBall Ontology</dc:title>
+        <vann:preferredNamespacePrefix xml:lang="en">basketball</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://www.semanticweb.org/ModSem/Basketball</vann:preferredNamespaceUri>
+        <rdfs:label xml:lang="en">basketballOntology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
 
 
