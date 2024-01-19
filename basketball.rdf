@@ -30,6 +30,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica da quali persone sono composte le squadre</rdfs:comment>
+        <rdfs:label xml:lang="it">Appartiene a squadra</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -40,6 +42,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un premio è stato assegnato ad un Partecipante</rdfs:comment>
+        <rdfs:label xml:lang="it">Assegnato a Partecipante</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -49,6 +53,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#compostaDa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra è comosta da persone</rdfs:comment>
+        <rdfs:label>Composta da persona</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -59,6 +65,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra gioca una partita</rdfs:comment>
+        <rdfs:label xml:lang="it">Gioca partita</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -66,8 +74,10 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#haCittà -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haCittà">
-        <rdfs:domain rdf:resource="http://schema.org/State"/>
-        <rdfs:range rdf:resource="http://schema.org/City"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una regione contiene una città</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha città</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -77,6 +87,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haClassificaConference">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+        <rdfs:label xml:lang="it">Ha classifica conference</rdfs:label>
+        <rdfs:label xml:lang="it">Proprietà che indica che una stagione ha una classifca Conference</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -87,6 +99,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una stagione ha una classifca generale</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha classifica generale</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -96,6 +110,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haConference">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una stagione è composta da una conference</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha conference</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -104,8 +120,10 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPalazzetto">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoIn"/>
-        <rdfs:domain rdf:resource="http://schema.org/City"/>
-        <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto è situato in una città</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha palazzetto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -120,6 +138,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#partecipaConference"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#gioca"/>
         </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="it">Ha partita</rdfs:label>
+        <rdfs:label xml:lang="it">Proprietà che indica che una partita è giocata in una stagione</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -129,6 +149,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPremio">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che duranrte una stagione viene assegnato un premio</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha premio</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -136,8 +158,10 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#haRegione -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haRegione">
-        <rdfs:domain rdf:resource="http://schema.org/Country"/>
-        <rdfs:range rdf:resource="http://schema.org/State"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una nazione contiene una regione</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha regione</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -151,6 +175,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#roleOfParticipant"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un giocatore ha un ruolo specifico</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha ruolo</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -160,6 +186,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haStagione">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un campionato di basket è composto da stagioni</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha stagione</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -169,6 +197,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haVinto">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che partecipante ha vinto un premio</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha vinto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -179,6 +209,23 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che unaparttia è giocata da un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="en">hasPlayerParticipating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haRegione"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haCittà"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una nazione contiene una città</rdfs:comment>
+        <rdfs:label>Nazione ha città</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -187,8 +234,10 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#ospitaPartita">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn"/>
-        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto ospita una partita</rdfs:comment>
+        <rdfs:label xml:lang="it">Ospita partita</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -198,6 +247,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#partecipaConference">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra partecipa ad una conference</rdfs:comment>
+        <rdfs:label xml:lang="it">Partecipa conference</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -208,6 +259,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <rdfs:label xml:lang="en">participatingInEvent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -221,6 +273,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#appartiene"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment>Proprietà che indica che una persona ha vinto un premio di squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Persona ha vinto premio</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -234,6 +288,7 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#playerParticipating"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#participatingInEvent"/>
         </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="en">playerParticipantIn</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -245,6 +300,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:label xml:lang="en">playerParticipating</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -254,6 +310,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <rdfs:label xml:lang="en">playerParticipatingByRole</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -264,6 +321,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra possiede un palazzetto</rdfs:comment>
+        <rdfs:label xml:lang="it">Possiede palazzetto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -271,8 +330,10 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#provieneDa -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#provieneDa">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
-        <rdfs:range rdf:resource="http://schema.org/City"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <rdfs:comment>Proprietà che indica che una persona proviene da una città</rdfs:comment>
+        <rdfs:label xml:lang="it">Proviene da</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -283,6 +344,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
+        <rdfs:label xml:lang="en">roleOfParticipant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -290,21 +352,10 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#situatoIn -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#situatoIn">
-        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
-        <rdfs:range rdf:resource="http://schema.org/City"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/ModSem/Basketball#statoHaCittà -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#statoHaCittà">
-        <rdfs:domain rdf:resource="http://schema.org/Country"/>
-        <rdfs:range rdf:resource="http://schema.org/City"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haRegione"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haCittà"/>
-        </owl:propertyChainAxiom>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto è situato in una città</rdfs:comment>
+        <rdfs:label xml:lang="it">Situato in</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -314,6 +365,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una partita è giocata da una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">È giocata da</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -324,6 +377,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una partita è giocata dalla squadra di casa</rdfs:comment>
+        <rdfs:label xml:lang="it">È giocata da squadra di casa</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -334,6 +389,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#èGiocataDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una partita è giocata dalla squadra ospite</rdfs:comment>
+        <rdfs:label xml:lang="it">È giocata da squadra ospite</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -342,11 +399,13 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#èGiocataIn">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
-        <rdfs:range rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una partia è giocata in un palazzetto</rdfs:comment>
+        <rdfs:label xml:lang="it">È giocata in palazzetto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -354,8 +413,10 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#èPossedutoDaSquadra">
-        <rdfs:domain rdf:resource="http://schema.org/StadiumOrArena"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto è posseduto da una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">È posseduto da squadra</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -366,6 +427,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra è più in alto in classifica rispetto ad un&apos;altra squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">È superiore in classifica</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -385,8 +448,10 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#Altezza">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment xml:lang="it">Altezza di una persona</rdfs:comment>
+        <rdfs:label>Altezza</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -396,6 +461,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#AnnoClassifica">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Anno a cui si riferisce una classifica</rdfs:comment>
+        <rdfs:label xml:lang="it">Anno classifica</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -405,6 +472,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#AnnoConference">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Anno a cui si riferisce una conferece</rdfs:comment>
+        <rdfs:label xml:lang="it">Anno conference</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -414,6 +483,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#AnnoPremio">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Anno a cui si riferisce un premio</rdfs:comment>
+        <rdfs:label xml:lang="it">Anno premio</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -423,6 +494,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#AnnoSquadra">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Anno a cui si riferisce una composizione di una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Anno squadra</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -433,6 +506,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Anno a cui si riferisce una stagione</rdfs:comment>
+        <rdfs:label xml:lang="it">Anno stagione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -442,6 +517,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#CapienzaPalazzetto">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment xml:lang="it">Capienza di un palazzetto</rdfs:comment>
+        <rdfs:label xml:lang="it">Capienza palazzetto</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -452,6 +529,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="it">Data in cui un premio è stato assegnato</rdfs:comment>
+        <rdfs:label xml:lang="it">Data assegnazione premio</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -462,6 +541,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Data in cui una squadra è stata fondata</rdfs:comment>
+        <rdfs:label xml:lang="it">Data di fondazione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -472,6 +553,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="it">Data di nascita di una persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Data di nascita</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -482,6 +565,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="it">Data in cui si è svolta una partita</rdfs:comment>
+        <rdfs:label xml:lang="it">Data partita</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -492,6 +577,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Descrizione di un premio</rdfs:comment>
+        <rdfs:label xml:lang="it">Descrizione premio</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -502,6 +589,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Indica se un giocatore è ritirato o meno</rdfs:comment>
+        <rdfs:label xml:lang="it">Giocatore ritirato</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -511,6 +600,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#NomeAgent">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Nome di un agent</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome agent</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -521,6 +612,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il nome del campionato</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome campionato</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -530,6 +623,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#NomeClassifica">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il nome della classifica</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome classifica</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -540,6 +635,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#NomeAgent"/>
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il nome e il cognome di una persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome e congome persona</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -550,6 +647,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Nome di una conference</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome conference</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -560,6 +659,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Nome di un premio</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome premio</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -570,6 +671,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#NomeAgent"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il nome con cui è conosciuta una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome squadra</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -578,8 +681,10 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#Peso">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="it">Il peso di una persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Peso</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -589,6 +694,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#PlaceName">
         <rdfs:domain rdf:resource="http://schema.org/Place"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il nome con il quale in luogo è conosciuto</rdfs:comment>
+        <rdfs:label xml:lang="it">Nome Luogo</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -598,6 +705,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#RisultatoPartita">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">Il risultato di una partita espresso dal punteggio della squadra di casa seguito dal punteggio della squadra ospite</rdfs:comment>
+        <rdfs:label xml:lang="it">Risultato partita</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -610,6 +719,21 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://schema.org/AdministrativeArea -->
+
+    <owl:Class rdf:about="http://schema.org/AdministrativeArea">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haCittà"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/City"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
+    </owl:Class>
     
 
 
@@ -635,7 +759,7 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haRegione"/>
-                <owl:someValuesFrom rdf:resource="http://schema.org/State"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/AdministrativeArea"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
@@ -680,21 +804,6 @@
     
 
 
-    <!-- http://schema.org/State -->
-
-    <owl:Class rdf:about="http://schema.org/State">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haCittà"/>
-                <owl:someValuesFrom rdf:resource="http://schema.org/City"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/ModSem/Basketball#Ala -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ala">
@@ -707,6 +816,8 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
+        <rdfs:comment xml:lang="it">Particolare posizione della palla canestro, che si riferice alle posizioni di Ala piccolo e Ala grande</rdfs:comment>
+        <rdfs:label xml:lang="it">Ala</rdfs:label>
     </owl:Class>
     
 
@@ -715,6 +826,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Allenatore">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Staff"/>
+        <rdfs:comment xml:lang="it">Colui che allena un atleta o una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Allenatore</rdfs:label>
     </owl:Class>
     
 
@@ -723,6 +836,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Assistente">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Allenatore"/>
+        <rdfs:comment xml:lang="it">Aiutante del primo allenatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Assistente</rdfs:label>
     </owl:Class>
     
 
@@ -731,6 +846,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+        <rdfs:comment xml:lang="it">Competizione cestistica all&apos;interno della quale competono delle squadre secondo la struttura del campionato americano</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato Americano di Basket</rdfs:label>
     </owl:Class>
     
 
@@ -739,6 +856,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+        <rdfs:comment xml:lang="it">Competizione cestistica all&apos;interno della quale competono delle squadre secondo la struttura del campionato europeo</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato Europeo di Basket</rdfs:label>
     </owl:Class>
     
 
@@ -752,6 +871,8 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Competizione cestistica all&apos;interno della quale competono delle squadre</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato di Basket</rdfs:label>
     </owl:Class>
     
 
@@ -775,13 +896,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Città">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+        <rdfs:comment xml:lang="it">Insediamento umano esteso e stabile</rdfs:comment>
+        <rdfs:label xml:lang="it">Città</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Classifica -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Classifica">
+        <rdfs:comment xml:lang="it">Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica</rdfs:label>
+    </owl:Class>
     
 
 
@@ -789,6 +915,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+        <rdfs:comment xml:lang="it">Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre che partecipano ad una conference</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica Conference</rdfs:label>
     </owl:Class>
     
 
@@ -797,13 +925,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica"/>
+        <rdfs:comment xml:lang="it">Insieme dei record vittorie/sconfitte ordinate per percentuale di vittorie delle squadre che partecipano ad un campionato</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica Generale</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Conference -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Conference">
+        <rdfs:comment xml:lang="it">Sottogruppo di squadre divise per prossimità geografica</rdfs:comment>
+        <rdfs:label xml:lang="it">Conference</rdfs:label>
+    </owl:Class>
     
 
 
@@ -811,6 +944,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Fisioterapista">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Staff"/>
+        <rdfs:comment xml:lang="it">Colui che elabora ed attua gli interventi diretti alla prevenzione, alla cura e alla riabilitazione delle patologie motorie</rdfs:comment>
+        <rdfs:label xml:lang="it">Fisioterapista</rdfs:label>
     </owl:Class>
     
 
@@ -819,6 +954,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#GeneralManager">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Staff"/>
+        <rdfs:comment xml:lang="it">dirigente con la responsabilità generale di una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">General Manager</rdfs:label>
     </owl:Class>
     
 
@@ -832,14 +969,9 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#provieneDa"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://schema.org/City"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:comment xml:lang="it">Professionista di uno sport</rdfs:comment>
+        <rdfs:label xml:lang="it">Giocatore</rdfs:label>
     </owl:Class>
     
 
@@ -856,13 +988,18 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
+        <rdfs:comment xml:lang="it">Particolare posizione della palla canestro, che si riferice alle posizioni di Playmaker e Guardia tiratrice</rdfs:comment>
+        <rdfs:label xml:lang="it">Guardia</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Luogo -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Luogo">
+        <rdfs:comment xml:lang="it">Entità che hanno un&apos;estensione fisica</rdfs:comment>
+        <rdfs:label xml:lang="it">Luogo</rdfs:label>
+    </owl:Class>
     
 
 
@@ -870,6 +1007,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Nazione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+        <rdfs:comment xml:lang="it">divisione politica all&apos;interno di una certa entità geografica</rdfs:comment>
+        <rdfs:label xml:lang="it">Nazione</rdfs:label>
     </owl:Class>
     
 
@@ -878,6 +1017,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Palazzetto">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+        <rdfs:comment xml:lang="it">Impianto atto ad ospitare eventi sportivi, musicali e di intrattenimento</rdfs:comment>
+        <rdfs:label>Palazzetto</rdfs:label>
     </owl:Class>
     
 
@@ -886,6 +1027,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partecipante">
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment xml:lang="it">Agente che partecipa ad un Campionato</rdfs:comment>
+        <rdfs:label xml:lang="it">Partecipante</rdfs:label>
     </owl:Class>
     
 
@@ -911,6 +1054,8 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Una situazione che rappresenta il/i ruolo/i di uno specifico soggetto (o soggetti) che partecipa a un evento (o eventi).</rdfs:comment>
+        <rdfs:label xml:lang="it">ParticipantRole</rdfs:label>
     </owl:Class>
     
 
@@ -944,6 +1089,8 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Evento sportivo nel quale si affrontano dei partecipanti</rdfs:comment>
+        <rdfs:label xml:lang="it">Partita</rdfs:label>
     </owl:Class>
     
 
@@ -952,14 +1099,32 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Persona">
         <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#provieneDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/City"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
+        <rdfs:comment xml:lang="it">individuo con una coscienza e identità</rdfs:comment>
+        <rdfs:label xml:lang="it">Persona</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Premio -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio">
+        <rdfs:comment xml:lang="it">attestazione assegnata a una persona, gruppo di persone come ringraziamento o per la propria distinzione</rdfs:comment>
+        <rdfs:label xml:lang="it">Premio</rdfs:label>
+    </owl:Class>
     
 
 
@@ -967,6 +1132,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+        <rdfs:comment xml:lang="it">Premio assegnato ad una singola persona</rdfs:comment>
+        <rdfs:label xml:lang="it">Premio individuale</rdfs:label>
     </owl:Class>
     
 
@@ -975,6 +1142,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+        <rdfs:comment xml:lang="it">Premio assegnato ad una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Premio di squadra</rdfs:label>
     </owl:Class>
     
 
@@ -983,6 +1152,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Preparatore_Atletico">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Allenatore"/>
+        <rdfs:comment xml:lang="it">Colui che si occupa della preparazione fisica dei giocatori</rdfs:comment>
+        <rdfs:label xml:lang="it">Preparatore Atletico</rdfs:label>
     </owl:Class>
     
 
@@ -991,6 +1162,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Allenatore"/>
+        <rdfs:comment xml:lang="it">della preparazione fisica e tattica di un atleta o di una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Primo Allenatore</rdfs:label>
     </owl:Class>
     
 
@@ -999,6 +1172,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Proprietario">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Staff"/>
+        <rdfs:comment xml:lang="it">Colui che possiede una squadra</rdfs:comment>
+        <rdfs:label xml:lang="it">Proprietario</rdfs:label>
     </owl:Class>
     
 
@@ -1007,13 +1182,18 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Regione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+        <rdfs:comment xml:lang="it">Una regione geografica</rdfs:comment>
+        <rdfs:label xml:lang="it">Regione</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/ModSem/Basketball#Ruolo -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ruolo">
+        <rdfs:comment xml:lang="it">Posizione in campo occupata da un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="it">Ruolo</rdfs:label>
+    </owl:Class>
     
 
 
@@ -1055,6 +1235,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
+        <rdfs:comment xml:lang="it">Gruppo di persone associate tra di loro in una competizione sportiva</rdfs:comment>
+        <rdfs:label xml:lang="it">Squadra</rdfs:label>
     </owl:Class>
     
 
@@ -1062,7 +1244,9 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#Staff -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ModSem/Basketball#Staff">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Persona"/>
+        <rdfs:comment xml:lang="it">Componenti di una squadra che non sono giocatori</rdfs:comment>
+        <rdfs:label xml:lang="it">Staff</rdfs:label>
     </owl:Class>
     
 
@@ -1101,6 +1285,8 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">stagione di un evento sportivo ricorrente</rdfs:comment>
+        <rdfs:label xml:lang="it">Stagione</rdfs:label>
     </owl:Class>
     
 
@@ -1114,12 +1300,6 @@
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
     </owl:Class>
     
@@ -1141,6 +1321,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Akron">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
         <Basketball:PlaceName>Akron</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città dell&apos;Ohio</rdfs:comment>
+        <rdfs:label xml:lang="en">Akron</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1149,6 +1331,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ala_grande">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ala"/>
+        <rdfs:comment xml:lang="it">L&apos;ala grande, o il &quot;quattro&quot;, gioca invece solitamente vicino al canestro anche se, specialmente nei campionati europei, è sovente dotata di un buon tiro da dentro e di una discreta mobilità per aiutare il centro nella conquista dei rimbalzi.</rdfs:comment>
+        <rdfs:label xml:lang="it">Ala grande</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1157,6 +1341,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ala_piccola">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ala"/>
+        <rdfs:comment xml:lang="it">L&apos;ala piccola, o &quot;tre&quot;, è un giocatore con un&apos;ottima capacità sia di penetrazione sia di tiro.</rdfs:comment>
+        <rdfs:label xml:lang="it">Ala piccola</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1167,6 +1353,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano"/>
         <Basketball:haStagione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione2020"/>
         <Basketball:NomeCampionato>National Basketball Association Championship</Basketball:NomeCampionato>
+        <rdfs:comment xml:lang="it">Campionato di pallacanestro professionistica del Nord America.</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato NBA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1185,6 +1373,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
         <Basketball:AnnoClassifica>2019-2020</Basketball:AnnoClassifica>
         <Basketball:NomeClassifica>Classifica Eastern</Basketball:NomeClassifica>
+        <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla eastern conference del 2020</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica eastern conference 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1195,6 +1385,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
         <Basketball:AnnoClassifica>2019-2020</Basketball:AnnoClassifica>
         <Basketball:NomeClassifica>Classifica Regular Season</Basketball:NomeClassifica>
+        <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla stagione NBA del 2020</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica generale 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1205,6 +1397,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
         <Basketball:AnnoClassifica>2019-2020</Basketball:AnnoClassifica>
         <Basketball:NomeClassifica>Classifica Western</Basketball:NomeClassifica>
+        <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla western conference del 2020</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica western conference 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1216,6 +1410,8 @@
         <Basketball:situatoIn rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LosAngeles"/>
         <Basketball:CapienzaPalazzetto rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19067</Basketball:CapienzaPalazzetto>
         <Basketball:PlaceName>Crypto.com Arena</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Palazzetto dei Los Angeles Lakers situato a Los Angeles</rdfs:comment>
+        <rdfs:label xml:lang="en">Crypto.com arena</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1227,6 +1423,8 @@
         <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
         <Basketball:AnnoConference>2019-2020</Basketball:AnnoConference>
         <Basketball:NomeConference>EasternConference</Basketball:NomeConference>
+        <rdfs:comment xml:lang="it">Conference est della stagione NBA del 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Eastern conference 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1238,6 +1436,8 @@
         <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1973-06-21T00:00:00</Basketball:DataDiNascita>
         <Basketball:NomeCognomePersona>Frank Vogel</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">Allenatore dei Lakers nel 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Frank Vogel</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1246,6 +1446,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Guardia"/>
+        <rdfs:comment xml:lang="it">Chiamato anche il &quot;due&quot;, si tratta solitamente, come si intuisce anche dal nome, del miglior tiratore da 2 punti della squadra (da dentro l&apos;area perché appunto con questa altezza è più difficile mettere a segno punti da fuori), che sia però anche in grado di penetrare verso il canestro quando serve.</rdfs:comment>
+        <rdfs:label xml:lang="it">Guardia tiratrice</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1255,11 +1457,13 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Lakers2020">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
         <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
-        <Basketball:partecipaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#EasternConference2020"/>
+        <Basketball:partecipaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
         <Basketball:possiedePalazzetto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena"/>
         <Basketball:AnnoSquadra>2019-2020</Basketball:AnnoSquadra>
         <Basketball:DataDiFondazione>1947</Basketball:DataDiFondazione>
         <Basketball:NomeSquadra>LosAngeles Lakers</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Roster della squadra di NBA di Los Angeles del 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Los Angeles Lakers 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1275,6 +1479,8 @@
         <Basketball:GiocatoreRitirato rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</Basketball:GiocatoreRitirato>
         <Basketball:NomeCognomePersona>LeBron Raymone James</Basketball:NomeCognomePersona>
         <Basketball:Peso rdf:datatype="http://www.w3.org/2001/XMLSchema#float">113.0</Basketball:Peso>
+        <rdfs:comment xml:lang="it">Giocatore professionista di pallacanestro</rdfs:comment>
+        <rdfs:label xml:lang="en">LeBron James</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1295,6 +1501,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#LosAngeles">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
         <Basketball:PlaceName>LosAngeles</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città della California</rdfs:comment>
+        <rdfs:label xml:lang="en">Los Angeles</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1305,6 +1513,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
         <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Akron"/>
         <Basketball:PlaceName>Ohio</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Stato degli Stati Uniti</rdfs:comment>
+        <rdfs:label xml:lang="it">Ohio</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1317,6 +1527,8 @@
         <Basketball:èGiocataDaOspiti rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
         <Basketball:DataPartita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T00:00:00</Basketball:DataPartita>
         <Basketball:RisultatoPartita>117-107</Basketball:RisultatoPartita>
+        <rdfs:comment xml:lang="it">Partita tra i Lakers e i Suns giocata nella stagione NBA 2020</rdfs:comment>
+        <rdfs:label xml:lang="it">Partita Lakers Suns 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1325,6 +1537,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Playmaker">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Guardia"/>
+        <rdfs:comment xml:lang="it">Il Playmaker, detto anche &quot;l&apos;uno&quot;, normalmente è il giocatore con il miglior tiro della squadra e miglior trattamento di palla (passaggi e palleggio).</rdfs:comment>
+        <rdfs:label xml:lang="it">Playmaker</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1336,6 +1550,8 @@
         <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1969-12-23T00:00:00</Basketball:DataDiNascita>
         <Basketball:NomeCognomePersona>Rob Pelinka</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">General Manager dei laker nella stagione 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Rob Pelinka</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1350,6 +1566,8 @@
         <Basketball:haConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#EasternConference2020"/>
         <Basketball:haConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
         <Basketball:AnnoStagione>2019-2020</Basketball:AnnoStagione>
+        <rdfs:comment xml:lang="it">Stagione 2020 del campionato NBA</rdfs:comment>
+        <rdfs:label xml:lang="it">Stagione NBA 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1358,7 +1576,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Suns2020">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
-        <Basketball:partecipaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#EasternConference2020"/>
+        <Basketball:partecipaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
+        <rdfs:comment xml:lang="it">Roster della squadra di NBA di Phoenix del 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Phoenix Suns 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1370,6 +1590,8 @@
         <Basketball:assegnatoA rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:AnnoPremio>2019-2020</Basketball:AnnoPremio>
         <Basketball:NomePremio>Larry O’Brien Championship Trophy</Basketball:NomePremio>
+        <rdfs:comment xml:lang="it">Larry O’Brien Championship Trophy 2020, consegnato alla squadra che ha vinto la stagione NBA 2020</rdfs:comment>
+        <rdfs:label xml:lang="it">Titolo NBA 2020</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1380,6 +1602,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
         <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ohio"/>
         <Basketball:PlaceName>United States of America</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Nazione del mondo situata in Nord America</rdfs:comment>
+        <rdfs:label xml:lang="en">United States of America</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1390,7 +1614,24 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
         <Basketball:AnnoConference>2019-2020</Basketball:AnnoConference>
         <Basketball:NomeConference>Western Conference</Basketball:NomeConference>
+        <rdfs:comment xml:lang="it">Conference ovest della stagione NBA del 2020</rdfs:comment>
+        <rdfs:label xml:lang="en">Western conference 2020</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Centro">
+        <rdfs:comment xml:lang="it">Ruolo occupato da giocatori di grandi dimensioni, che si concentrano su rimbalzi, stoppate.</rdfs:comment>
+        <rdfs:label xml:lang="it">Centro</rdfs:label>
+    </rdf:Description>
     
 
 
