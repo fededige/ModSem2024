@@ -145,8 +145,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haClassificaConference">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una stagione ha una classifca Conference</rdfs:comment>
         <rdfs:label xml:lang="it">Ha classifica conference</rdfs:label>
-        <rdfs:label xml:lang="it">Proprietà che indica che una stagione ha una classifca Conference</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -177,7 +177,7 @@
     <!-- http://www.semanticweb.org/ModSem/Basketball#haPalazzetto -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPalazzetto">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoIn"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoA"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto è situato in una città</rdfs:comment>
@@ -191,11 +191,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#haPartita">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#haConference"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#partecipaConference"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#gioca"/>
-        </owl:propertyChainAxiom>
         <rdfs:label xml:lang="it">Ha partita</rdfs:label>
         <rdfs:label xml:lang="it">Proprietà che indica che una partita è giocata in una stagione</rdfs:label>
     </owl:ObjectProperty>
@@ -407,13 +402,25 @@
     
 
 
-    <!-- http://www.semanticweb.org/ModSem/Basketball#situatoIn -->
+    <!-- http://www.semanticweb.org/ModSem/Basketball#situatoA -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#situatoIn">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#situatoA">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
         <rdfs:comment xml:lang="it">Proprietà che indica che un palazzetto è situato in una città</rdfs:comment>
-        <rdfs:label xml:lang="it">Situato in</rdfs:label>
+        <rdfs:label xml:lang="it">Situato a</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#squadraProvieneDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#squadraProvieneDa">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Luogo"/>
+        <rdfs:comment xml:lang="it">Proprietà che indica che una squadra proviene da un luogo geografico</rdfs:comment>
+        <rdfs:label xml:lang="it">Squadra proviene da</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -852,7 +859,7 @@
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoIn"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#situatoA"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://schema.org/City"/>
             </owl:Restriction>
@@ -1405,14 +1412,149 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#AndersenParticipantRole -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#AndersenParticipantRole">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <Basketball:participatingInEvent rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Siena_Fortitudo_Bologna"/>
+        <Basketball:playerParticipating rdf:resource="http://www.semanticweb.org/ModSem/Basketball#David_Andersen"/>
+        <Basketball:roleOfParticipant rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Centro"/>
+        <rdfs:comment xml:lang="it">Individuo che definisce il ruolo di David Andersen  nella partita Siena Fortitudo Bologna</rdfs:comment>
+        <rdfs:label xml:lang="it">Andersen Participant Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Andrea_Diana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Andrea_Diana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Assistente"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+        <Basketball:NomeCognomePersona>Andrea Diana</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">Assistente dell&apos;Allenatore deil Bologna  nel 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">Andrea Diana</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Arena_Carioca_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Arena_Carioca_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+        <Basketball:situatoA rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Rio_de_Janeiro"/>
+        <Basketball:CapienzaPalazzetto rdf:datatype="http://www.w3.org/2001/XMLSchema#int">16000</Basketball:CapienzaPalazzetto>
+        <Basketball:PlaceName>Arena Carioca 1</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Palazzetto olimpionico di Rio de Janeiro</rdfs:comment>
+        <rdfs:label xml:lang="it">Arena Carioca 1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Australia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Australia">
+        <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Victoria"/>
+        <Basketball:PlaceName>Australia</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Nazione dell&apos;Oceania</rdfs:comment>
+        <rdfs:label xml:lang="it">Australia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#BelinelliParticipantRole -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#BelinelliParticipantRole">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <Basketball:participatingInEvent rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023"/>
+        <Basketball:playerParticipating rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Marco_Belinelli"/>
+        <Basketball:roleOfParticipant rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Guardia_tiratrice"/>
+        <rdfs:comment xml:lang="it">Individuo che definisce il ruolo di Marco Belinelli  nella partita Virtus Bologna EA7 Milano</rdfs:comment>
+        <rdfs:label xml:lang="it">Belinelli Participant Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Bologna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Bologna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>Bologna</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città di Bologna</rdfs:comment>
+        <rdfs:label xml:lang="it">Bologna</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Bologna2023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Bologna2023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:possiedePalazzetto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Virtus_Segafredo_Arena"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna"/>
+        <Basketball:AnnoSquadra>2022-2023</Basketball:AnnoSquadra>
+        <Basketball:DataDiFondazione>1927</Basketball:DataDiFondazione>
+        <Basketball:NomeSquadra>Virtus Segafredo Bologna</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Roster della squadra di Eurolega di Bologna del 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">Virtus Segafredo Bologna 2023</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#CampionatoNBA -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#CampionatoNBA">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano"/>
         <Basketball:haStagione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione2020"/>
         <Basketball:NomeCampionato>National Basketball Association Championship</Basketball:NomeCampionato>
-        <rdfs:comment xml:lang="it">Campionato di pallacanestro professionistica del Nord America.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Campionato di pallacanestro professionistico del Nord America.</rdfs:comment>
         <rdfs:label xml:lang="it">Campionato NBA</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_Eurolega -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Eurolega">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo"/>
+        <Basketball:haStagione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione_Eurolega_2023"/>
+        <Basketball:NomeCampionato>Turkish Airlines Eurolega</Basketball:NomeCampionato>
+        <rdfs:comment xml:lang="it">Campionato di pallacanestro professionistico Europeo.</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato Eurolega</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_Olimpiade_Basket -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Olimpiade_Basket">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket"/>
+        <Basketball:haStagione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Olimpiadi2016"/>
+        <Basketball:NomeCampionato>Olimpiadi di Basket</Basketball:NomeCampionato>
+        <rdfs:comment xml:lang="it">Campionato di pallacanestro delle olimpiadi</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato olimpiade di basket</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Campionato_italiano -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_italiano">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo"/>
+        <Basketball:haStagione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#StagioneLBA2004"/>
+        <Basketball:NomeCampionato>Lega Basket A</Basketball:NomeCampionato>
+        <rdfs:comment xml:lang="it">Campionato di pallacanestro professionistico Italiano</rdfs:comment>
+        <rdfs:label xml:lang="it">Campionato LBA</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Carlton -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Carlton">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>Carlton</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Sobborgo di Melbourne</rdfs:comment>
+        <rdfs:label xml:lang="en">Carlton</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1437,14 +1579,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020 -->
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ClassificaGeneraleNBA2020 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGeneraleNBA2020">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
         <Basketball:AnnoClassifica>2019-2020</Basketball:AnnoClassifica>
         <Basketball:NomeClassifica>Classifica Regular Season</Basketball:NomeClassifica>
         <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla stagione NBA del 2020</rdfs:comment>
-        <rdfs:label xml:lang="it">Classifica generale 2020</rdfs:label>
+        <rdfs:label xml:lang="it">Classifica generale NBA 2020</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#ClassificaLBA2004 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaLBA2004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+        <Basketball:AnnoClassifica>2003-2004</Basketball:AnnoClassifica>
+        <Basketball:NomeClassifica>Classifica generale LBA</Basketball:NomeClassifica>
+        <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla stagione LBA del 2003-2004</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica LBA 2004</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1461,15 +1615,69 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Classifica_generale_Eurolega_2023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Classifica_generale_Eurolega_2023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+        <Basketball:AnnoClassifica>2022-2023</Basketball:AnnoClassifica>
+        <Basketball:NomeClassifica>Classifica generale Eurolega</Basketball:NomeClassifica>
+        <rdfs:comment xml:lang="it">Classifica delle squadre che partecipano alla stagione Eurolega del 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">Classifica Eurolega 2023</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
-        <Basketball:situatoIn rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LosAngeles"/>
+        <Basketball:situatoA rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LosAngeles"/>
         <Basketball:CapienzaPalazzetto rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19067</Basketball:CapienzaPalazzetto>
         <Basketball:PlaceName>Crypto.com Arena</Basketball:PlaceName>
         <rdfs:comment xml:lang="it">Palazzetto dei Los Angeles Lakers situato a Los Angeles</rdfs:comment>
-        <rdfs:label xml:lang="en">Crypto.com arena</rdfs:label>
+        <rdfs:label xml:lang="en">Crypto.com Arena</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#David_Andersen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#David_Andersen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena_2004"/>
+        <Basketball:haVinto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#MVPFinali"/>
+        <Basketball:provieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Carlton"/>
+        <Basketball:Altezza rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">211</Basketball:Altezza>
+        <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1980-06-23T00:00:00</Basketball:DataDiNascita>
+        <Basketball:GiocatoreRitirato rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Basketball:GiocatoreRitirato>
+        <Basketball:NomeCognomePersona>David Emil Andersen</Basketball:NomeCognomePersona>
+        <Basketball:Peso rdf:datatype="http://www.w3.org/2001/XMLSchema#float">113.0</Basketball:Peso>
+        <rdfs:comment xml:lang="it">Giocatore professionista di pallacanestro</rdfs:comment>
+        <rdfs:label xml:lang="it">David Andersen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#District_of_Columbia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#District_of_Columbia">
+        <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WashigtonDC"/>
+        <Basketball:PlaceName>District of Columbia</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Stato Americano</rdfs:comment>
+        <rdfs:label xml:lang="en">District of Columbia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#DurantParticipantRole -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#DurantParticipantRole">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+        <Basketball:participatingInEvent rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Serbia_USA_2016"/>
+        <Basketball:playerParticipating rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Kevin_Durant"/>
+        <Basketball:roleOfParticipant rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ala_piccola"/>
+        <rdfs:comment xml:lang="it">Individuo che definisce il ruolo di Kevin Durant nella finale delle olimpiadi del 2016 Serbia USA</rdfs:comment>
+        <rdfs:label xml:lang="it">Durant Participant Role</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1487,10 +1695,49 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Emilia_Romagna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Emilia_Romagna">
+        <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna"/>
+        <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#San_Giovanni_in_Persiceto"/>
+        <Basketball:PlaceName>Emilia Romagna</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Regione Italiana</rdfs:comment>
+        <rdfs:label xml:lang="it">Emilia Romagna</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#FortitudoBologna2004 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#FortitudoBologna2004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna"/>
+        <Basketball:AnnoSquadra>2003-2004</Basketball:AnnoSquadra>
+        <Basketball:DataDiFondazione>1962</Basketball:DataDiFondazione>
+        <Basketball:NomeSquadra>Fortitudo Pallacanestro Bologna 103</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Roster della seconda squadra di NBA di Bologna del 2004</rdfs:comment>
+        <rdfs:label xml:lang="it">Fortitudo Pallacanestro Bologna 103</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Francesco_Frati -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Francesco_Frati">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Proprietario"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena_2004"/>
+        <Basketball:NomeCognomePersona>Francesco Frati</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">Proprietario del Mens Sana Siena nel 2003-2004</rdfs:comment>
+        <rdfs:label xml:lang="it">Francesco Frati</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#FrankVogel -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#FrankVogel">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore"/>
+        <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Sergio_Scariolo"/>
         <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1973-06-21T00:00:00</Basketball:DataDiNascita>
         <Basketball:NomeCognomePersona>Frank Vogel</Basketball:NomeCognomePersona>
@@ -1510,13 +1757,41 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Italia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Italia">
+        <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Emilia_Romagna"/>
+        <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Toscana"/>
+        <Basketball:PlaceName>Italia</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Nazione Italiana</rdfs:comment>
+        <rdfs:label xml:lang="it">Italia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Kevin_Durant -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Kevin_Durant">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016"/>
+        <Basketball:provieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WashigtonDC"/>
+        <Basketball:Altezza rdf:datatype="http://www.w3.org/2001/XMLSchema#int">211</Basketball:Altezza>
+        <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1988-09-29T00:00:00</Basketball:DataDiNascita>
+        <Basketball:NomeCognomePersona>Kevin Wayne Durant</Basketball:NomeCognomePersona>
+        <Basketball:Peso rdf:datatype="http://www.w3.org/2001/XMLSchema#float">109.0</Basketball:Peso>
+        <rdfs:comment xml:lang="it">Giocatore professionista di pallacanestro</rdfs:comment>
+        <rdfs:label xml:lang="it">Kevin Durant</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Lakers2020 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Lakers2020">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
-        <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
         <Basketball:partecipaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
         <Basketball:possiedePalazzetto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Crypto.com_Arena"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LosAngeles"/>
         <Basketball:AnnoSquadra>2019-2020</Basketball:AnnoSquadra>
         <Basketball:DataDiFondazione>1947</Basketball:DataDiFondazione>
         <Basketball:NomeSquadra>LosAngeles Lakers</Basketball:NomeSquadra>
@@ -1530,6 +1805,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#LeBronJames">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Marco_Belinelli"/>
         <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:provieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Akron"/>
         <Basketball:Altezza rdf:datatype="http://www.w3.org/2001/XMLSchema#int">206</Basketball:Altezza>
@@ -1550,6 +1826,8 @@
         <Basketball:participatingInEvent rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita1"/>
         <Basketball:playerParticipating rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LeBronJames"/>
         <Basketball:roleOfParticipant rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ala_piccola"/>
+        <rdfs:comment xml:lang="it">Individuo che definisce il ruolo di LeBron James nella partita Lakers Suns</rdfs:comment>
+        <rdfs:label xml:lang="it">LeBron Participant Role</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1565,10 +1843,75 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#MVPFinali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#MVPFinali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
+        <Basketball:AnnoPremio>2003-2004</Basketball:AnnoPremio>
+        <Basketball:NomePremio>Most Valuable Player delle finali</Basketball:NomePremio>
+        <rdfs:comment xml:lang="it">Most valuable player delle finali 2003-2004 di LBA</rdfs:comment>
+        <rdfs:label xml:lang="it">MVP delle finali 2004</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Marco_Belinelli -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Marco_Belinelli">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+        <Basketball:provieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#San_Giovanni_in_Persiceto"/>
+        <Basketball:Altezza rdf:datatype="http://www.w3.org/2001/XMLSchema#int">196</Basketball:Altezza>
+        <Basketball:DataDiNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1986-03-25T00:00:00</Basketball:DataDiNascita>
+        <Basketball:GiocatoreRitirato rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</Basketball:GiocatoreRitirato>
+        <Basketball:NomeCognomePersona>Marco Stefano Belinelli</Basketball:NomeCognomePersona>
+        <Basketball:Peso rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100.0</Basketball:Peso>
+        <rdfs:comment xml:lang="it">Giocatore professionista di pallacanestro</rdfs:comment>
+        <rdfs:label xml:lang="it">Marco Belinelli</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Medaglia_argento_basket_2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Medaglia_argento_basket_2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra"/>
+        <Basketball:AnnoPremio>2016</Basketball:AnnoPremio>
+        <Basketball:NomePremio>Medaglia argento basket maschile olimpiadi 2016</Basketball:NomePremio>
+        <rdfs:comment xml:lang="it">Medaglia argento basket maschile olimpiadi assegnata alla squadra seconda classificata</rdfs:comment>
+        <rdfs:label xml:lang="it">Medaglia argento basket maschile olimpiadi 2016</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Mike_Krzyzewski -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Mike_Krzyzewski">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016"/>
+        <Basketball:NomeCognomePersona>Mike Krzyzewski</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">Allenatore della squadra USA nazionale nel 2016</rdfs:comment>
+        <rdfs:label xml:lang="en">Mike Krzyzewski</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Milano2023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Milano2023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:AnnoSquadra>2022-2023</Basketball:AnnoSquadra>
+        <Basketball:DataDiFondazione>1930</Basketball:DataDiFondazione>
+        <Basketball:NomeSquadra>EA7 Emporio Armani Milano</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Roster della squadra di Eurolega di Milano del 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">EA7 Emporio Armani Milano 2023</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Ohio -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ohio">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
         <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Akron"/>
         <Basketball:PlaceName>Ohio</Basketball:PlaceName>
         <rdfs:comment xml:lang="it">Stato degli Stati Uniti</rdfs:comment>
@@ -1577,10 +1920,37 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Olimpiadi2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Olimpiadi2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Serbia_USA_2016"/>
+        <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Medaglia_argento_basket_2016"/>
+        <Basketball:AnnoStagione>2016</Basketball:AnnoStagione>
+        <rdfs:comment>Stagione di basket delle olimpiadi del 2016</rdfs:comment>
+        <rdfs:label xml:lang="it">Olimpiadi 2016</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Palasport_Mens_Sana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Palasport_Mens_Sana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+        <Basketball:situatoA rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena"/>
+        <Basketball:CapienzaPalazzetto rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6070</Basketball:CapienzaPalazzetto>
+        <Basketball:PlaceName>Palasport Mens Sana</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Palazzetto della Mens Sana Siena situato a Siena</rdfs:comment>
+        <rdfs:label xml:lang="it">Palasport Mens Sana</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Partita1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita1">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <owl:differentFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023"/>
         <Basketball:èGiocataDaCasa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
         <Basketball:èGiocataDaOspiti rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
         <Basketball:DataPartita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T00:00:00</Basketball:DataPartita>
@@ -1591,12 +1961,66 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <Basketball:èGiocataDaCasa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+        <Basketball:èGiocataDaOspiti rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Milano2023"/>
+        <Basketball:DataPartita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-04-13T20:45:00</Basketball:DataPartita>
+        <Basketball:RisultatoPartita>89-84</Basketball:RisultatoPartita>
+        <rdfs:comment xml:lang="it">Partita tra Bologna e Milano giocata nella stagione Eurolega 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">Partita Bologna Milano 2023</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Partita_Serbia_USA_2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita_Serbia_USA_2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <Basketball:èGiocataDaCasa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Serbia_2016"/>
+        <Basketball:èGiocataDaOspiti rdf:resource="http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016"/>
+        <Basketball:èGiocataIn rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Arena_Carioca_1"/>
+        <Basketball:DataPartita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-08-21T20:45:00</Basketball:DataPartita>
+        <Basketball:RisultatoPartita>66-96</Basketball:RisultatoPartita>
+        <rdfs:comment xml:lang="it">Partita tra gli USA e la Serbia giocata alle olimpiadi del 2016</rdfs:comment>
+        <rdfs:label xml:lang="it">Finale Serbia USA 2016</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Partita_Siena_Fortitudo_Bologna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita_Siena_Fortitudo_Bologna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+        <Basketball:èGiocataDaCasa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena_2004"/>
+        <Basketball:èGiocataDaOspiti rdf:resource="http://www.semanticweb.org/ModSem/Basketball#FortitudoBologna2004"/>
+        <Basketball:DataPartita rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-05-31T20:30:00</Basketball:DataPartita>
+        <Basketball:RisultatoPartita>80-70</Basketball:RisultatoPartita>
+        <rdfs:comment xml:lang="it">Partita tra il Siena e la Fortitudo Bologna giocata nella stagione LBA 2003-2004</rdfs:comment>
+        <rdfs:label xml:lang="it">Partita Siena Fortitudo Bologna 2004</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Playmaker -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Playmaker">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Guardia"/>
         <rdfs:comment xml:lang="it">Il Playmaker, detto anche &quot;l&apos;uno&quot;, normalmente è il giocatore con il miglior tiro della squadra e miglior trattamento di palla (passaggi e palleggio).</rdfs:comment>
         <rdfs:label xml:lang="it">Playmaker</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Rio_de_Janeiro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Rio_de_Janeiro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>Rio de Janeiro</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città del Brasile</rdfs:comment>
+        <rdfs:label xml:lang="it">Rio de Janeiro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1614,18 +2038,155 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#San_Giovanni_in_Persiceto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#San_Giovanni_in_Persiceto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>San Giovanni in Persiceto</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città dell&apos;Emilia Romagna</rdfs:comment>
+        <rdfs:label xml:lang="it">San Giovanni in Persiceto</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Serbia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Serbia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+        <rdfs:comment xml:lang="it">Nazione europea</rdfs:comment>
+        <rdfs:label xml:lang="it">Serbia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Serbia_2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Serbia_2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:haVinto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Medaglia_argento_basket_2016"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Serbia"/>
+        <Basketball:èSuperioreInClassifica rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Spagna2016"/>
+        <Basketball:NomeSquadra>Nazionale di pallacanestro della Serbia</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Nazionale di pallacanestro della Serbia</rdfs:comment>
+        <rdfs:label xml:lang="it">Serbia 2016</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Sergio_Scariolo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Sergio_Scariolo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore"/>
+        <Basketball:appartiene rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+        <Basketball:NomeCognomePersona>Sergio Scariolo</Basketball:NomeCognomePersona>
+        <rdfs:comment xml:lang="it">Allenatore del Bologna nel 2023</rdfs:comment>
+        <rdfs:label xml:lang="it">Sergio Scariolo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Siena -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Siena">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>Siena</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Città della Toscana</rdfs:comment>
+        <rdfs:label xml:lang="it">Siena</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Siena_2004 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Siena_2004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:possiedePalazzetto rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palasport_Mens_Sana"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena"/>
+        <Basketball:AnnoSquadra>2003-2004</Basketball:AnnoSquadra>
+        <Basketball:DataDiFondazione>1961</Basketball:DataDiFondazione>
+        <Basketball:NomeSquadra>Mens Sana Basketball Siena</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Roster della squadra di LBA di Siena del 2004</rdfs:comment>
+        <rdfs:label xml:lang="it">Mens Sana Basketball Siena 2004</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Spagna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Spagna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+        <rdfs:comment xml:lang="it">Nazione europea</rdfs:comment>
+        <rdfs:label xml:lang="it">Spagna</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Spagna2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Spagna2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Spagna"/>
+        <Basketball:NomeSquadra>Nazionale di pallacanestro della Spagna</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Nazionale di pallacanestro della Spagna</rdfs:comment>
+        <rdfs:label xml:lang="it">Spagna 2016</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#Stagione2020 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione2020">
         <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
         <Basketball:haClassificaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020"/>
         <Basketball:haClassificaConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020"/>
-        <Basketball:haClassificaGenerale rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020"/>
+        <Basketball:haClassificaGenerale rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGeneraleNBA2020"/>
         <Basketball:haConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#EasternConference2020"/>
         <Basketball:haConference rdf:resource="http://www.semanticweb.org/ModSem/Basketball#WesternConference2020"/>
+        <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita1"/>
+        <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020"/>
         <Basketball:AnnoStagione>2019-2020</Basketball:AnnoStagione>
         <rdfs:comment xml:lang="it">Stagione 2020 del campionato NBA</rdfs:comment>
         <rdfs:label xml:lang="it">Stagione NBA 2020</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#StagioneLBA2004 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#StagioneLBA2004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <Basketball:haClassificaGenerale rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaLBA2004"/>
+        <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Siena_Fortitudo_Bologna"/>
+        <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#MVPFinali"/>
+        <Basketball:AnnoStagione>2003-2004</Basketball:AnnoStagione>
+        <rdfs:comment xml:lang="it">Stagione 2003-2004 del campionato LBA</rdfs:comment>
+        <rdfs:label xml:lang="it">Stagione LBA 2004</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Stagione_Eurolega_2023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione_Eurolega_2023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <Basketball:haClassificaGenerale rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Classifica_generale_Eurolega_2023"/>
+        <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023"/>
+        <Basketball:AnnoStagione>2022-2023</Basketball:AnnoStagione>
+        <rdfs:comment xml:lang="it">Stagione 2023 del campionato Eurolega</rdfs:comment>
+        <rdfs:label xml:lang="it">Stagione Eurolega 2023</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <Basketball:squadraProvieneDa rdf:resource="http://www.semanticweb.org/ModSem/Basketball#USA"/>
+        <Basketball:èSuperioreInClassifica rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Serbia_2016"/>
+        <Basketball:NomeSquadra>Nazionale di pallacanestro degli Stati Uniti d&apos;America</Basketball:NomeSquadra>
+        <rdfs:comment xml:lang="it">Nazionale di pallacanestro degli Stati Uniti d&apos;America</rdfs:comment>
+        <rdfs:label xml:lang="it">Stati Uniti 2016</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1654,14 +2215,58 @@
     
 
 
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Toscana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Toscana">
+        <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena"/>
+        <rdfs:comment xml:lang="it">Regione Italiana</rdfs:comment>
+        <rdfs:label xml:lang="it">Toscana</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ModSem/Basketball#USA -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#USA">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+        <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#District_of_Columbia"/>
         <Basketball:haRegione rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ohio"/>
         <Basketball:PlaceName>United States of America</Basketball:PlaceName>
         <rdfs:comment xml:lang="it">Nazione del mondo situata in Nord America</rdfs:comment>
         <rdfs:label xml:lang="en">United States of America</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Victoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Victoria">
+        <Basketball:haCittà rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Carlton"/>
+        <Basketball:PlaceName>Victoria</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Regione dell&apos;Australia</rdfs:comment>
+        <rdfs:label xml:lang="en">Victoria</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#Virtus_Segafredo_Arena -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#Virtus_Segafredo_Arena">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+        <Basketball:CapienzaPalazzetto rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9980</Basketball:CapienzaPalazzetto>
+        <Basketball:PlaceName>Virtus Segafredo Arena</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Palazzetto del Virtus Segafredo Bologna situato a Bologna</rdfs:comment>
+        <rdfs:label xml:lang="it">Virtus Segafredo Arena</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ModSem/Basketball#WashigtonDC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ModSem/Basketball#WashigtonDC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+        <Basketball:PlaceName>Washigton DC</Basketball:PlaceName>
+        <rdfs:comment xml:lang="it">Capitale degli USA</rdfs:comment>
+        <rdfs:label xml:lang="en">Washigton DC</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1714,17 +2319,35 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale2020"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Milano2023"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
         </owl:distinctMembers>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#FrankVogel"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#LeBronJames"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#RobPelinka"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#CampionatoNBA"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Eurolega"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_italiano"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaEasternConference2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGeneraleNBA2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaWesternConference2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Classifica_generale_Eurolega_2023"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione2020"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#StagioneLBA2004"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione_Eurolega_2023"/>
         </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
