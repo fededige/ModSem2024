@@ -1598,7 +1598,74 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ModSem/Basketball#stagioneHaSquadra">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haClassificaConference"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haConference"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haPartita"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haPremio"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haClassificaGenerale"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partecipante"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Squadra"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#haVinto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#possiedePalazzetto"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/StadiumOrArena"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ModSem/Basketball#compostaDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Proprietario"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -4622,6 +4689,8 @@
         <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Serbia_USA_2016"/>
         <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Medaglia_argento_basket_2016"/>
         <Basketball:stagioneHaGiocatore rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Kevin_Durant"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Serbia_2016"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#StatiUniti2016"/>
         <Basketball:AnnoStagione>2016</Basketball:AnnoStagione>
         <rdfs:comment>Stagione di basket delle olimpiadi del 2016</rdfs:comment>
         <rdfs:label xml:lang="it">Olimpiadi 2016</rdfs:label>
@@ -5319,6 +5388,8 @@
         <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita1"/>
         <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#TitoloNBA2020"/>
         <Basketball:stagioneHaGiocatore rdf:resource="http://www.semanticweb.org/ModSem/Basketball#LeBronJames"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Lakers2020"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Suns2020"/>
         <Basketball:AnnoStagione>2019-2020</Basketball:AnnoStagione>
         <rdfs:comment xml:lang="it">Stagione 2020 del campionato NBA</rdfs:comment>
         <rdfs:label xml:lang="it">Stagione NBA 2020</rdfs:label>
@@ -5365,6 +5436,8 @@
         <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Siena_Fortitudo_Bologna"/>
         <Basketball:haPremio rdf:resource="http://www.semanticweb.org/ModSem/Basketball#MVPFinali"/>
         <Basketball:stagioneHaGiocatore rdf:resource="http://www.semanticweb.org/ModSem/Basketball#David_Andersen"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#FortitudoBologna2004"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Siena_2004"/>
         <Basketball:AnnoStagione>2003-2004</Basketball:AnnoStagione>
         <rdfs:comment xml:lang="it">Stagione 2003-2004 del campionato LBA</rdfs:comment>
         <rdfs:label xml:lang="it">Stagione LBA 2004</rdfs:label>
@@ -5411,6 +5484,8 @@
         <Basketball:haPartita rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023"/>
         <Basketball:stagioneHaGiocatore rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Marco_Belinelli"/>
         <Basketball:stagioneHaGiocatore rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Partita_Bologna_Milano_2023"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Bologna2023"/>
+        <Basketball:stagioneHaSquadra rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Milano2023"/>
         <Basketball:AnnoStagione>2022-2023</Basketball:AnnoStagione>
         <rdfs:comment xml:lang="it">Stagione 2023 del campionato Eurolega</rdfs:comment>
         <rdfs:label xml:lang="it">Stagione Eurolega 2023</rdfs:label>
