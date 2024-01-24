@@ -169,7 +169,9 @@
 
 
 ###  http://www.semanticweb.org/ModSem/Basketball#haRuolo
-<http://www.semanticweb.org/ModSem/Basketball#haRuolo> rdf:type owl:ObjectProperty ;
+<http://www.semanticweb.org/ModSem/Basketball#haRuolo> rdf:type owl:ObjectProperty ,
+                                                                owl:AsymmetricProperty ,
+                                                                owl:IrreflexiveProperty ;
                                                        rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
                                                        rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Ruolo> ;
                                                        owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#playerParticipatingByRole>
@@ -198,6 +200,8 @@
 ###  http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating
 <http://www.semanticweb.org/ModSem/Basketball#hasPlayerParticipating> rdf:type owl:ObjectProperty ;
                                                                       owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> ;
+                                                                      rdf:type owl:AsymmetricProperty ,
+                                                                               owl:IrreflexiveProperty ;
                                                                       rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
                                                                       rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
                                                                       rdfs:comment "Proprietà che indica che unaparttia è giocata da un giocatore"@it ;
@@ -205,7 +209,9 @@
 
 
 ###  http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà
-<http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà> rdf:type owl:ObjectProperty ;
+<http://www.semanticweb.org/ModSem/Basketball#nazioneHaCittà> rdf:type owl:ObjectProperty ,
+                                                                       owl:AsymmetricProperty ,
+                                                                       owl:IrreflexiveProperty ;
                                                               rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Nazione> ;
                                                               rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Città> ;
                                                               owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#haRegione>
@@ -218,6 +224,8 @@
 ###  http://www.semanticweb.org/ModSem/Basketball#ospitaPartita
 <http://www.semanticweb.org/ModSem/Basketball#ospitaPartita> rdf:type owl:ObjectProperty ;
                                                              owl:inverseOf <http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> ;
+                                                             rdf:type owl:AsymmetricProperty ,
+                                                                      owl:IrreflexiveProperty ;
                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
                                                              rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
                                                              rdfs:comment "Proprietà che indica che un palazzetto ospita una partita"@it ;
@@ -241,7 +249,9 @@
 
 
 ###  http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra
-<http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> rdf:type owl:ObjectProperty ;
+<http://www.semanticweb.org/ModSem/Basketball#personaHaVintoPremioDiSquadra> rdf:type owl:ObjectProperty ,
+                                                                                      owl:AsymmetricProperty ,
+                                                                                      owl:IrreflexiveProperty ;
                                                                              rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Persona> ;
                                                                              rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Premio> ;
                                                                              owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#appartiene>
@@ -252,7 +262,9 @@
 
 
 ###  http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn
-<http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> rdf:type owl:ObjectProperty ;
+<http://www.semanticweb.org/ModSem/Basketball#playerParticipantIn> rdf:type owl:ObjectProperty ,
+                                                                            owl:AsymmetricProperty ,
+                                                                            owl:IrreflexiveProperty ;
                                                                    rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Giocatore> ;
                                                                    rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
                                                                    owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#playerParticipating>
@@ -361,7 +373,9 @@
 
 
 ###  http://www.semanticweb.org/ModSem/Basketball#èGiocataIn
-<http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> rdf:type owl:ObjectProperty ;
+<http://www.semanticweb.org/ModSem/Basketball#èGiocataIn> rdf:type owl:ObjectProperty ,
+                                                                   owl:AsymmetricProperty ,
+                                                                   owl:IrreflexiveProperty ;
                                                           rdfs:domain <http://www.semanticweb.org/ModSem/Basketball#Partita> ;
                                                           rdfs:range <http://www.semanticweb.org/ModSem/Basketball#Palazzetto> ;
                                                           owl:propertyChainAxiom ( <http://www.semanticweb.org/ModSem/Basketball#èGiocataDaCasa>
@@ -2025,6 +2039,52 @@
               <http://www.semanticweb.org/ModSem/Basketball#Playmaker>
             ) ;
   rdfs:subClassOf <http://www.semanticweb.org/ModSem/Basketball#Ruolo>
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/ModSem/Basketball#Ala>
+                <http://www.semanticweb.org/ModSem/Basketball#Assistente>
+                <http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano>
+                <http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo>
+                <http://www.semanticweb.org/ModSem/Basketball#Centro>
+                <http://www.semanticweb.org/ModSem/Basketball#Città>
+                <http://www.semanticweb.org/ModSem/Basketball#ClassificaConference>
+                <http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale>
+                <http://www.semanticweb.org/ModSem/Basketball#Conference>
+                <http://www.semanticweb.org/ModSem/Basketball#Fisioterapista>
+                <http://www.semanticweb.org/ModSem/Basketball#GeneralManager>
+                <http://www.semanticweb.org/ModSem/Basketball#Giocatore>
+                <http://www.semanticweb.org/ModSem/Basketball#Guardia>
+                <http://www.semanticweb.org/ModSem/Basketball#Nazione>
+                <http://www.semanticweb.org/ModSem/Basketball#Palazzetto>
+                <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole>
+                <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                <http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale>
+                <http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra>
+                <http://www.semanticweb.org/ModSem/Basketball#Preparatore_Atletico>
+                <http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore>
+                <http://www.semanticweb.org/ModSem/Basketball#Proprietario>
+                <http://www.semanticweb.org/ModSem/Basketball#Regione>
+                <http://www.semanticweb.org/ModSem/Basketball#SquadraMoltoVincente>
+                <http://www.semanticweb.org/ModSem/Basketball#SquadraPocoVincente>
+                <http://www.semanticweb.org/ModSem/Basketball#Stagione>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/ModSem/Basketball#Campionato_di_Basket>
+                <http://www.semanticweb.org/ModSem/Basketball#Classifica>
+                <http://www.semanticweb.org/ModSem/Basketball#Conference>
+                <http://www.semanticweb.org/ModSem/Basketball#Luogo>
+                <http://www.semanticweb.org/ModSem/Basketball#ParticipantRole>
+                <http://www.semanticweb.org/ModSem/Basketball#Partita>
+                <http://www.semanticweb.org/ModSem/Basketball#Premio>
+                <http://www.semanticweb.org/ModSem/Basketball#Ruolo>
+                <http://www.semanticweb.org/ModSem/Basketball#Stagione>
+                <http://xmlns.com/foaf/0.1/Agent>
+              )
 ] .
 
 

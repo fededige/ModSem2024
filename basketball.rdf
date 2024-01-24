@@ -2422,6 +2422,37 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ModSem/Basketball#Ruolo"/>
     </owl:Class>
     <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Ala"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Assistente"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Americano"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Campionato_Europeo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Centro"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Città"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaConference"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ClassificaGenerale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Conference"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Fisioterapista"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#GeneralManager"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Giocatore"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Guardia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Nazione"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Palazzetto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#ParticipantRole"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Partita"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio_Individuale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Premio_Squadra"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Preparatore_Atletico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Primo_Allenatore"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Proprietario"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Regione"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#SquadraMoltoVincente"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#SquadraPocoVincente"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Stagione"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/ModSem/Basketball#Akron"/>
