@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // url dell'endpoint SPARQL di GraphDB dell'ontologia
     var url = "http://localhost:7200/repositories/ModSem2024";
     $('#select_query_professionista').change(function(){
         $("#results_select").empty();
@@ -6,6 +7,7 @@ $(document).ready(function() {
         $("#tableResult tbody").empty();
         var query;
         var value = document.getElementById("select_query_professionista").value;
+        // selezioniamo i dati opportuni per popolare la seconda combobox in base al value della voce selezionata nella prima
         if(value == 1) {
             query = `
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -42,6 +44,7 @@ $(document).ready(function() {
                 ?haSquadra Basketball:NomeSquadra ?nomeSquadra.
             }`;
         }
+        // richiesta all'endpoint che utilizza una della tre query costruite in precedenza
         $.ajax({
             url: url,
             type: "get",
@@ -50,11 +53,12 @@ $(document).ready(function() {
                 query: query
             },
             success: function(data) {
-                console.log(data);
+                // elaborazione dei dati ricevuti nella risposta
                 var result = data.split('\n');
                 result.splice(0, 1);
                 result.splice(result.length - 1, 1);
-                console.log(result);
+
+                // costruzione degli elementi che popolano la seconda combobox
                 var optDefault = document.createElement('option');
                 optDefault.value = 0;
                 optDefault.innerHTML = "Seleziona un valore";
@@ -86,8 +90,8 @@ $(document).ready(function() {
         $("#tableResult tbody").empty();
         var value = document.getElementById("select_query_professionista").value;
         var query_value = document.getElementById("results_select").value;
-        console.log(query_value);
         var query;
+        // costruzione della query finale parametrizzata in base al valore della voce selezionata
         if(value == 1) {
             var nomeCampionato = query_value.split(",")[0];
             var annoStagione = query_value.split(",")[1];
@@ -144,9 +148,9 @@ $(document).ready(function() {
                         Basketball:haRuolo ?haRuolo.
                 ?haRuolo rdfs:label ?ruolo.
             }`;
-            console.log(query);
         }
 
+        // richiesta all'endpoint SPARQL con la query finale
         $.ajax({
             url: url,
             type: "get",
@@ -155,10 +159,10 @@ $(document).ready(function() {
                 query: query
             },
             success: function(data) {
-                console.log(data);
                 var result = data.split('\n');
                 result.splice(result.length - 1, 1);
                 
+                // costruzione della tabella per mostrare i risultati all'utente
                 var table = $("#tableResult");
                 var thead = $("<thead>");
                 var tbody = $("<tbody>");
@@ -166,10 +170,8 @@ $(document).ready(function() {
                 result.forEach(element => {
                     var tr = $("<tr>");
                     var dataRow = element.split(',');
-                    console.log(dataRow);
                     dataRow.forEach(el => {
                         el = el.replace('\r', '');
-                        console.log(el);
                         if(i == 0) {
                             tr.append("<th>" + el + "</th>");
                             thead.append(tr);
